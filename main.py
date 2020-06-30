@@ -4,16 +4,18 @@
 
 from gtts import gTTS
 from moviepy.editor import *
-import os,random
+from moviepy.audio.fx.volumex import volumex
+from moviepy.video.fx.resize import resize
+import os, random
 
 language = 'en'
 
 apology_intros = ["I made a severe and continuous lapse in my judgement, and I don’t expect to be forgiven. I’m "
-                  "simply here to apologize.","I want to talk to you guys about some mistakes I have made",
-                  "... ... ... yeah I wasn't acting very sexy earlier",""]
+                  "simply here to apologize.", "I want to talk to you guys about some mistakes I have made",
+                  "yeah, I wasn't acting very sexy earlier"]
 
-bs = ["My waitress at taco bell got my order wrong three months ago","I couldn't find my right sock this morning","My mommy took away my PS vita", "My sugar daddy stopped funding my twizzler addiction"]
-
+bs = ["My waitress at taco bell got my order wrong three months ago", "I couldn't find my right sock this morning",
+      "My mommy took away my PS vita", "My sugar daddy stopped funding my twizzler addiction"]
 
 def main():
     reason = input('Why are you apologizing? ')
@@ -22,10 +24,55 @@ def main():
     Conclusion = f' Thank you everyone for giving me this time to apologize for my actions. It\'s just been so so hard for me since {random.choice(bs)}. I love each of you guys so so much. Thank you'
 
     script = Intro + Middle_part + Conclusion
-    audio = gTTS(text=script, lang=language, slow=False)
-    audio.save('Assets/audio.mp3')
+    print('Processing audio...')
 
-    os.system("mpg321 audio.mp3")
+    audio = gTTS(text=script, lang=language, slow=True)
+
+    # audio = audioIntro + audioBridge + audioConc
+    audio.save('Assets/audio.aac')
+
+    print('Audio has been processed....')
+    print('Processing video...')
+
+    list_num = [1, 2, 3, 4, 5]
+    clip1 = random.choice(list_num)
+    list_num.remove(clip1)
+    clip2 = random.choice(list_num)
+
+    clip1 = VideoFileClip("Assets/" + str(clip1) + ".mp4")
+    clip2 = VideoFileClip("Assets/" + str(clip2) + ".mp4")
+
+    audioClip = AudioFileClip("Assets/audio.aac")
+
+    final_clip = concatenate_videoclips([clip1, clip2])
+
+    # final_clip = volumex(final_clip, 0.5)
+    # final_clip = final_clip.set_audio(audioClip)
+    final_clip.set_audio(audio).write_videofile("apology.mp4", codec="libx264", audio_codec='aac', audio='Assets/audio.aac',
+                                                        temp_audiofile='temp-audio.m4a', remove_temp=True)
+    final_clip.close()
+
+    """ final_clip.set_audio(new_audioclip).write_videofile(
+        'Assets/audio.aac',
+        fps=None,
+        codec="libx264",
+        audio_codec="aac",
+        bitrate=None,
+        audio=True,
+        audio_fps=44100,
+        preset='medium',
+        audio_nbytes=4,
+        audio_bitrate=None,
+        audio_bufsize=2000,
+        # temp_audiofile="/tmp/temp.m4a",
+        # remove_temp=False,
+        # write_logfile=True,
+        rewrite_audio=True,
+        verbose=True,
+        threads=None,
+    )
+    """
+
 
 if __name__ == '__main__':
     main()

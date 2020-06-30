@@ -16,7 +16,7 @@ numpy==1.19.0
 Pillow==7.2.0
 proglog==0.1.9
 pycparser==2.20
-pygame==1.9.6
+pydub==0.24.1
 requests==2.24.0
 six==1.15.0
 soupsieve==2.0.1
