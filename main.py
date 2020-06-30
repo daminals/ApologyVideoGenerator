@@ -12,7 +12,7 @@ language = 'en'
 
 apology_intros = ["I made a severe and continuous lapse in my judgement, and I don’t expect to be forgiven. I’m "
                   "simply here to apologize.", "I want to talk to you guys about some mistakes I have made",
-                  "yeah, I wasn't acting very sexy earlier"]
+                  "yeah, I wasn't acting very sexy earlier...   "]
 
 bs = ["My waitress at taco bell got my order wrong three months ago", "I couldn't find my right sock this morning",
       "My mommy took away my PS vita", "My sugar daddy stopped funding my twizzler addiction"]
@@ -34,7 +34,7 @@ def main():
     print('Audio has been processed....')
     print('Processing video...')
 
-    list_num = [1, 2, 3, 4, 5]
+    list_num = [1, 2, 3, 4, 5,6,7]
     clip1 = random.choice(list_num)
     list_num.remove(clip1)
     clip2 = random.choice(list_num)
@@ -44,11 +44,17 @@ def main():
 
     audioClip = AudioFileClip("Assets/audio.aac")
 
-    final_clip = concatenate_videoclips([clip1, clip2])
+    MusicFile = random.choice(os.listdir('./Assets/music'))
+    backgroundMusic = AudioFileClip("Assets/music/"+MusicFile)
+    #backgroundMusic = volumex(backgroundMusic, 0.3)
 
-    # final_clip = volumex(final_clip, 0.5)
-    # final_clip = final_clip.set_audio(audioClip)
-    final_clip.set_audio(audio).write_videofile("apology.mp4", codec="libx264", audio_codec='aac', audio='Assets/audio.aac',
+
+
+    final_clip = concatenate_videoclips([clip1, clip2])
+    backgroundMusic.set_duration(final_clip.duration)
+    audioClip = CompositeAudioClip([audioClip,backgroundMusic])
+
+    final_clip.set_audio(audioClip).write_videofile("apology.mp4", codec="libx264", audio_codec='aac', audio='Assets/audio.aac',
                                                         temp_audiofile='temp-audio.m4a', remove_temp=True)
     final_clip.close()
 
