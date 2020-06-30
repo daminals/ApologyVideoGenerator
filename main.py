@@ -68,6 +68,7 @@ def main():
                                                     audio=True,temp_audiofile='temp-audio.m4a',
                                                     remove_temp=True)
     final_clip.close()
+    os.remove('Assets/audio.aac')
 
     """ final_clip.set_audio(new_audioclip).write_videofile(
         'Assets/audio.aac',
