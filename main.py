@@ -9,7 +9,7 @@ from moviepy.video.fx.resize import resize
 import os, random
 
 # TODO: add subtitles
-# TODO: Organize different steps into seperate functions (ex: tts to tts function
+# TODO: Organize different steps into seperate functions (ex: tts to tts function)
 
 language = 'en'
 
@@ -24,18 +24,25 @@ bs = ["My waitress at taco bell got my order wrong three months ago", "I couldn'
 def main():
     reason = input('Why are you apologizing? ')
     Intro = random.choice(apology_intros)
-    Middle_part = f"  I am deeply and truly sorry for {reason}. It was wrong, disgraceful, and I promise it will never happen again. {reason} is the worst thing I have ever done in my entire life, no contest. I don't want your forgiveness, just the open space to be able to say how deeply sorry I am for {reason} "
-    Conclusion = f' Thank you everyone for giving me this time to apologize for my actions. It\'s just been so so hard for me since {random.choice(bs)}. I love each of you guys so so much. Thank you'
+    Middle_part = f"  I am deeply and truly sorry for {reason.lower()}. It was wrong, disgraceful, and I promise it will never happen again. {reason.lower()} is the worst thing I have ever done in my entire life, no contest. . . I don't want your forgiveness, just the open space to be able to say how deeply sorry I am for {reason.lower()} "
+    Conclusion = f' Thank you everyone for giving me this time to apologize for my actions. It\'s just been so so hard for me since {random.choice(bs)}. I love each of you guys so so much. Thank you, and Don\'t forget to like and subscribe!'
 
     script = Intro + Middle_part + Conclusion
     print('Processing audio...')
 
     audio = gTTS(text=script, lang=language, slow=True)
 
-    # audio = audioIntro + audioBridge + audioConc
     audio.save('Assets/audio.aac')
 
+    audioClip = AudioFileClip("Assets/audio.aac")
+
+    MusicFile = random.choice(os.listdir('./Assets/music'))
+    backgroundMusic = AudioFileClip("Assets/music/" + MusicFile)
+    backgroundMusic = backgroundMusic.set_duration(audioClip.duration)
+    NewaudioClip = CompositeAudioClip([audioClip, backgroundMusic])
     print('Audio has been processed....')
+
+
     print('Processing video...')
 
     list_num = [1, 2, 3, 4, 5, 6, 7]
@@ -50,23 +57,21 @@ def main():
     clip2 = VideoFileClip("Assets/" + str(clip2) + ".mp4")
     clip3 = VideoFileClip("Assets/" + str(clip3) + ".mp4")
 
-
-    audioClip = AudioFileClip("Assets/audio.aac")
-
-    MusicFile = random.choice(os.listdir('./Assets/music'))
-    backgroundMusic = AudioFileClip("Assets/music/" + MusicFile)
     #backgroundMusic = volumex(backgroundMusic, 0.1)
 
     final_clip = concatenate_videoclips([clip1, clip2,clip3])
-    final_clip.set_duration(audioClip.duration)
     #final_clip.subclip(0,audioClip.duration)
     #backgroundMusic.subclip(0,audioClip.duration)
-    backgroundMusic.set_duration(audioClip.duration)
-    NewaudioClip = CompositeAudioClip([audioClip, backgroundMusic])
 
-    final_clip.set_audio(NewaudioClip).subclip(0,audioClip.duration).write_videofile("apology.mov", codec="libx264", audio_codec='aac',
-                                                    audio=True,temp_audiofile='temp-audio.m4a',
-                                                    remove_temp=True)
+    final_clip = final_clip.subclip(0,audioClip.duration)
+    try:
+        final_clip.set_audio(NewaudioClip).write_videofile("apology.mov", codec="libx264", audio_codec='aac',
+                                                        audio=True,temp_audiofile='temp-audio.m4a',fps=30,
+                                                        remove_temp=True)
+    except IndexError:
+        final_clip.set_audio(NewaudioClip).subclip(t_end=(final_clip.duration - 1.0/final_clip.fps)).write_videofile("apology.mov", codec="libx264", audio_codec='aac',audio=True, temp_audiofile='temp-audio.m4a', fps=30, remove_temp=True)
+
+
     final_clip.close()
     os.remove('Assets/audio.aac')
 
