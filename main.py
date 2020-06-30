@@ -9,7 +9,8 @@ from moviepy.video.fx.resize import resize
 import os, random
 
 # TODO: add subtitles
-# TODO: Organize different steps into seperate functions (ex: tts to tts function)
+# TODO: Organize different steps into separate functions (ex: tts to tts function)
+# TODO: DEBUG!!! It crashes and is unable to load the video every so often, and that must be fixed
 
 language = 'en'
 
