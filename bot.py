@@ -26,9 +26,9 @@ async def on_ready():
 
 @bot.command(name='sorry')
 async def sorry(ctx,*,sor):
-    ID = ''
-    for i in range(4):
-        ID += str(random.randint(0, 9))
+    print('transforming '+ sor+ ' into an apology video')
+    ctx.send('Processing... \nthis may take a while...')
+    ID = gen_ID(4)
     main(True,ID,sor)
     await ctx.send(file=discord.File("Finished/apology" + ID + ".mp4"))
 

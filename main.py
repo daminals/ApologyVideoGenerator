@@ -29,6 +29,12 @@ middle = ["I don't want your forgiveness, just the open space to be able to say 
           "The goal of my content is always to entertain, I never meant to let it get out of hand.  "
           ]
 
+def gen_ID(char):
+    ID = ''
+    for i in range(char):
+        ID += str(random.randint(0, 9))
+    return ID
+
 def clutter():
     for i in os.listdir('Temp-Files'):
         if not i=='.gitkeep':
@@ -119,7 +125,5 @@ def main(bool_inp,ID,apolo=''):
 
 
 if __name__ == '__main__':
-    ID = ''
-    for i in range(4):
-        ID += str(random.randint(0, 9))
+    ID = gen_ID(4)
     main(False,ID)
