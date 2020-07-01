@@ -28,7 +28,8 @@ bs = ["My waitress at taco bell got my order wrong three months ago", "I couldn'
 
 def clutter():
     for i in os.listdir('Temp-Files'):
-        os.remove('Temp-Files/' + i)
+        if not i=='.gitkeep':
+            os.remove('Temp-Files/' + i)
 
 
 def compression(input_name, output_name):
