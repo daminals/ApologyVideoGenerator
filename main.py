@@ -1,15 +1,15 @@
 # main.py
-# This does something
+# This generates Apology videos
 # Daniel Kogan, 6/30/2020
 
 from gtts import gTTS
 from moviepy.editor import *
 from moviepy.audio.fx.volumex import volumex
-from moviepy.video.fx.resize import resize
 import os, random, ffmpy
 
 # TODO: add subtitles
 # TODO: Organize different steps into separate functions (ex: tts to tts function)
+# TODO: Make into a website and/or discord bot
 # TODO: DEBUG!!! It crashes and is unable to load the video every so often, and that must be fixed
 
 language = 'en'
@@ -25,6 +25,9 @@ bs = ["My waitress at taco bell got my order wrong three months ago", "I couldn'
       "I was really hungry at the time"
       "I broke my iPhone by putting it too close to the cutting board, but it's ok my Dad will just buy me a new one"]
 
+middle = ["I don't want your forgiveness, just the open space to be able to say how deeply sorry I am.  ",
+          "The goal of my content is always to entertain, I never meant to let it get out of hand.  "
+          ]
 
 def clutter():
     for i in os.listdir('Temp-Files'):
@@ -43,7 +46,7 @@ def compression(input_name, output_name):
 def main():
     reason = input('Why are you apologizing? ')
     Intro = random.choice(apology_intros)
-    Middle_part = f".  I am deeply and truly sorry for {reason.lower()}. It was wrong, disgraceful, and I promise it will never happen again,  .   {reason.lower()} is the worst thing I have ever done in my entire life, no contest. . . I don't want your forgiveness, just the open space to be able to say how deeply sorry I am.  "
+    Middle_part = f".  I am deeply and truly sorry for {reason.lower()}. It was wrong, disgraceful, and I promise it will never happen again,  .   {reason.lower()} is the worst thing I have ever done in my entire life, no contest. . .  {random.choice(middle)}"
     Conclusion = f' Thank you everyone for giving me this time to apologize for my actions. It\'s just been so so hard for me since {random.choice(bs)}. I love each of you guys so so much. Thank you, and Don\'t forget to SMASH that like button and subscribe for more content!'
     script = Intro + Middle_part + Conclusion
     print('Processing audio...')
@@ -67,7 +70,7 @@ def main():
 
     print('Processing video...')
 
-    list_num = [1, 2, 3, 4, 5, 6, 7]
+    list_num = [1, 2, 3, 4, 5, 6, 7,8,9,10,11]
     clip1 = random.choice(list_num)
     list_num.remove(clip1)
     clip2 = random.choice(list_num)
