@@ -43,7 +43,7 @@ def compression(input_name, output_name):
     ff.run()
 
 
-def main(bool_inp,apolo=''):
+def main(bool_inp,ID,apolo=''):
     if bool_inp:
         reason = apolo
     else:
@@ -89,9 +89,6 @@ def main(bool_inp,apolo=''):
 
     final_clip = concatenate_videoclips([clip1, clip2, clip3])
     final_clip = final_clip.subclip(0, audioClip.duration)
-    ID = ''
-    for i in range(4):
-        ID += str(random.randint(0, 9))
 
     def Process(final_clip, ID, NewaudioClip):
         try:
@@ -122,4 +119,7 @@ def main(bool_inp,apolo=''):
 
 
 if __name__ == '__main__':
-    main(False)
+    ID = ''
+    for i in range(4):
+        ID += str(random.randint(0, 9))
+    main(False,ID)

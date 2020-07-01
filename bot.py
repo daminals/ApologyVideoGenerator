@@ -23,4 +23,14 @@ async def on_ready():
         # "myself break over & over"
         activity=discord.Activity(type=discord.ActivityType.watching, name=f"over {server_num} servers| s!help"))
 
+
+@bot.command(name='sorry')
+async def sorry(ctx,*,sor):
+    ID = ''
+    for i in range(4):
+        ID += str(random.randint(0, 9))
+    main(False,ID,sor)
+    await ctx.send(file=discord.File("Finished/apology" + ID + ".mp4"))
+
+
 bot.run(TOKEN)
