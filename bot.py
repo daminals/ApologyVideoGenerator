@@ -27,9 +27,13 @@ async def on_ready():
 @bot.command(name='sorry')
 async def sorry(ctx,*,sor):
     print('transforming '+ sor+ ' into an apology video')
-    ctx.send('Processing... \nthis may take a while...')
+    await ctx.send('Processing... \nthis may take a while...')
     ID = gen_ID(4)
-    main(True,ID,sor)
+    try:
+        main(True,ID,sor)
+    except Exception as e:
+        await ctx.send('Whoopsie, I suffered a '+str(e)+'error, I\'ll try again now')
+        main(True,ID,sor)
     await ctx.send(file=discord.File("Finished/apology" + ID + ".mp4"))
 
 
