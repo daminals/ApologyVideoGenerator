@@ -11,7 +11,7 @@ from discord.ext import commands, tasks
 TOKEN = os.environ.get('TOKEN', 3)
 bot = commands.Bot(command_prefix='s!')
 
-
+from main import *
 
 @bot.event
 async def on_ready():

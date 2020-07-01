@@ -43,8 +43,11 @@ def compression(input_name, output_name):
     ff.run()
 
 
-def main():
-    reason = input('Why are you apologizing? ')
+def main(bool_inp,apolo=''):
+    if bool_inp:
+        reason = apolo
+    else:
+        reason = input('Why are you apologizing? ')
     Intro = random.choice(apology_intros)
     Middle_part = f".  I am deeply and truly sorry for {reason.lower()}. It was wrong, disgraceful, and I promise it will never happen again,  .   {reason.lower()} is the worst thing I have ever done in my entire life, no contest. . .  {random.choice(middle)}"
     Conclusion = f' Thank you everyone for giving me this time to apologize for my actions. It\'s just been so so hard for me since {random.choice(bs)}. I love each of you guys so so much. Thank you, and Don\'t forget to SMASH that like button and subscribe for more content!'
@@ -119,4 +122,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main(False)
