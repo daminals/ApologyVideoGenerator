@@ -20,10 +20,18 @@ apology_intros = ["I made a severe and continuous lapse in my judgement, and I d
                   ]
 
 bs = ["My waitress at taco bell got my order wrong three months ago", "I couldn't find my right sock this morning",
-      "My mommy took away my PS vita", "My sugar daddy stopped funding my twizzler addiction", "scratched my iPhone screen", "I was tried for first degree murder", "I'm a scorpio", "I was really hungry at the time"
+      "My mommy took away my PS vita", "My sugar daddy stopped funding my twizzler addiction",
+      "scratched my iPhone screen", "I was tried for first degree murder", "I'm a scorpio",
+      "I was really hungry at the time"
       "I broke my iPhone by putting it too close to the cutting board, but it's ok my Dad will just buy me a new one"]
 
-def compression(input_name,output_name):
+
+def clutter():
+    for i in os.listdir('Temp-Files'):
+        os.remove('Temp-Files/' + i)
+
+
+def compression(input_name, output_name):
     inp = {input_name: None}
     outp = {output_name: f'-vcodec libx264 -b 500k'}
     ff = ffmpy.FFmpeg(inputs=inp, outputs=outp)
@@ -46,12 +54,15 @@ def main():
     audioClip = AudioFileClip("Assets/audio.aac")
 
     MusicFile = random.choice(os.listdir('./Assets/music'))
-    #print(MusicFile)
-    backgroundMusic = AudioFileClip("Assets/music/" + MusicFile)
+    # print(MusicFile)
+    try:
+        backgroundMusic = AudioFileClip("Assets/music/" + MusicFile)
+    except Exception as e:
+        print(e)
+        print(MusicFile)
     backgroundMusic = backgroundMusic.set_duration(audioClip.duration)
     NewaudioClip = CompositeAudioClip([audioClip, backgroundMusic]).set_duration(audioClip.duration)
     print('Audio has been processed....')
-
 
     print('Processing video...')
 
@@ -61,41 +72,46 @@ def main():
     clip2 = random.choice(list_num)
     list_num.remove(clip2)
     clip3 = random.choice(list_num)
-    #print(clip1,clip2,clip3)
-
+    # print(clip1,clip2,clip3)
 
     clip1 = VideoFileClip("Assets/" + str(clip1) + ".mp4")
     clip2 = VideoFileClip("Assets/" + str(clip2) + ".mp4")
     clip3 = VideoFileClip("Assets/" + str(clip3) + ".mp4")
 
-    #backgroundMusic = volumex(backgroundMusic, 0.1)
+    # backgroundMusic = volumex(backgroundMusic, 0.1)
 
-    final_clip = concatenate_videoclips([clip1, clip2,clip3])
-    #final_clip.subclip(0,audioClip.duration)
-    #backgroundMusic.subclip(0,audioClip.duration)
-
-    final_clip = final_clip.subclip(0,audioClip.duration)
+    final_clip = concatenate_videoclips([clip1, clip2, clip3])
+    final_clip = final_clip.subclip(0, audioClip.duration)
     ID = ''
     for i in range(4):
-        ID += str(random.randint(0,9))
+        ID += str(random.randint(0, 9))
 
-    try:
-        final_clip.set_audio(NewaudioClip).write_videofile("Temp-Files/apology"+ID+".mov", codec="libx264", audio_codec='aac',
-                                                        audio=True,temp_audiofile='Finished/temp-audio.m4a',fps=30,
-                                                        remove_temp=True)
-        print('Video processed...')
-        print('Compressing video...')
-        compression("Temp-Files/apology"+ID+".mov","Finished/apology"+ID+".mov")
-        os.remove("Temp-Files/apology"+ID+".mov")
-        print('Video compressed...')
+    def Process(final_clip, ID, NewaudioClip):
+        try:
+            final_clip.set_audio(NewaudioClip).write_videofile("Temp-Files/apology" + ID + ".mov", codec="libx264",
+                                                               audio_codec='aac', audio=True,
+                                                               temp_audiofile='Temp-Files/temp-audio.m4a',
+                                                               fps=30, remove_temp=True)
+        except IndexError:
+            print(Exception)
+            final_clip.subclip(t_end=(final_clip.duration - 1.0 / final_clip.fps)).write_videofile(
+                "Temp-Files/apology" + ID + ".mov", codec="libx264", audio_codec='aac',
+                audio=True, temp_audiofile='Temp-Files/temp-audio.m4a', fps=30,
+                remove_temp=True)
+        except Exception as e:
+            print(e)
+            Process(final_clip, ID, NewaudioClip)
 
-    except IndexError:
-        print(Exception)
-        main()
-
+    Process(final_clip, ID, NewaudioClip)
+    print('Video processed...')
+    print('Compressing video...')
+    compression("Temp-Files/apology" + ID + ".mov", "Finished/apology" + ID + ".mp4")
+    os.remove("Temp-Files/apology" + ID + ".mov")
+    print('Video compressed...')
 
     final_clip.close()
     os.remove('Assets/audio.aac')
+    clutter()
 
 
 if __name__ == '__main__':
