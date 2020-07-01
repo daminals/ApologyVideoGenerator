@@ -6,7 +6,7 @@ from gtts import gTTS
 from moviepy.editor import *
 from moviepy.audio.fx.volumex import volumex
 from moviepy.video.fx.resize import resize
-import os, random
+import os, random, ffmpy
 
 # TODO: add subtitles
 # TODO: Organize different steps into separate functions (ex: tts to tts function)
@@ -16,17 +16,26 @@ language = 'en'
 
 apology_intros = ["I made a severe and continuous lapse in my judgement, and I don’t expect to be forgiven. I’m "
                   "simply here to apologize. ", "I want to talk to you guys about some mistakes I have made, ",
-                  "yeah, I wasn't acting very sexy earlier...   "]
+                  "yeah, I wasn't acting very sexy earlier...   ", "...Long and Deep sigh..."
+                  ]
 
 bs = ["My waitress at taco bell got my order wrong three months ago", "I couldn't find my right sock this morning",
-      "My mommy took away my PS vita", "My sugar daddy stopped funding my twizzler addiction"]
+      "My mommy took away my PS vita", "My sugar daddy stopped funding my twizzler addiction", "scratched my iPhone screen", "I was tried for first degree murder", "I'm a scorpio", "I was really hungry at the time"
+      "I broke my iPhone by putting it too close to the cutting board, but it's ok my Dad will just buy me a new one"]
+
+def compression(input_name,output_name):
+    inp = {input_name: None}
+    outp = {output_name: f'-vcodec libx264 -b 500k'}
+    ff = ffmpy.FFmpeg(inputs=inp, outputs=outp)
+    print(ff.cmd)
+    ff.run()
 
 
 def main():
     reason = input('Why are you apologizing? ')
     Intro = random.choice(apology_intros)
-    Middle_part = f".  I am deeply and truly sorry for {reason.lower()}. It was wrong, disgraceful, and I promise it will never happen again,  .   {reason.lower()} is the worst thing I have ever done in my entire life, no contest. . . I don't want your forgiveness, just the open space to be able to say how deeply sorry I am for {reason.lower()}. "
-    Conclusion = f' Thank you everyone for giving me this time to apologize for my actions. It\'s just been so so hard for me since {random.choice(bs)}. I love each of you guys so so much. Thank you, and Don\'t forget to like and subscribe!'
+    Middle_part = f".  I am deeply and truly sorry for {reason.lower()}. It was wrong, disgraceful, and I promise it will never happen again,  .   {reason.lower()} is the worst thing I have ever done in my entire life, no contest. . . I don't want your forgiveness, just the open space to be able to say how deeply sorry I am.  "
+    Conclusion = f' Thank you everyone for giving me this time to apologize for my actions. It\'s just been so so hard for me since {random.choice(bs)}. I love each of you guys so so much. Thank you, and Don\'t forget to SMASH that like button and subscribe for more content!'
     script = Intro + Middle_part + Conclusion
     print('Processing audio...')
 
@@ -66,12 +75,23 @@ def main():
     #backgroundMusic.subclip(0,audioClip.duration)
 
     final_clip = final_clip.subclip(0,audioClip.duration)
+    ID = ''
+    for i in range(4):
+        ID += str(random.randint(0,9))
+
     try:
-        final_clip.set_audio(NewaudioClip).write_videofile("apology.mov", codec="libx264", audio_codec='aac',
-                                                        audio=True,temp_audiofile='temp-audio.m4a',fps=30,
+        final_clip.set_audio(NewaudioClip).write_videofile("Temp-Files/apology"+ID+".mov", codec="libx264", audio_codec='aac',
+                                                        audio=True,temp_audiofile='Finished/temp-audio.m4a',fps=30,
                                                         remove_temp=True)
+        print('Video processed...')
+        print('Compressing video...')
+        compression("Temp-Files/apology"+ID+".mov","Finished/apology"+ID+".mov")
+        os.remove("Temp-Files/apology"+ID+".mov")
+        print('Video compressed...')
+
     except IndexError:
-        final_clip.set_audio(NewaudioClip).subclip(t_end=(final_clip.duration - 1.0/final_clip.fps)).write_videofile("apology.mov", codec="libx264", audio_codec='aac',audio=True, temp_audiofile='temp-audio.m4a', fps=30, remove_temp=True)
+        print(Exception)
+        main()
 
 
     final_clip.close()
