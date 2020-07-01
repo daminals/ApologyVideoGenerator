@@ -29,7 +29,7 @@ async def sorry(ctx,*,sor):
     ID = ''
     for i in range(4):
         ID += str(random.randint(0, 9))
-    main(False,ID,sor)
+    main(True,ID,sor)
     await ctx.send(file=discord.File("Finished/apology" + ID + ".mp4"))
 
 
