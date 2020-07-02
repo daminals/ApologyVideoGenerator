@@ -37,5 +37,13 @@ async def sorry(ctx,*,sor):
     await ctx.send(file=discord.File("Finished/apology" + ID + ".mp4"))
     os.remove("Finished/apology" + ID + ".mp4")
 
+@bot.command(name='help')
+async def help(ctx):
+    embed = discord.Embed(title='Help!',
+                          color=discord.Color(6345206))
+    embed.add_field(name='**s!sorry (reason)**',
+                    value='Use s!sorry to create your own apology!',
+                    inline=False)
+    await ctx.channel.send(embed=embed)
 
 bot.run(TOKEN)
