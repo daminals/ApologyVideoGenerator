@@ -12,6 +12,7 @@ TOKEN = os.environ.get('TOKEN', 3)
 bot = commands.Bot(command_prefix='s!')
 
 from main import *
+bot.remove_command('help')
 
 @bot.event
 async def on_ready():
