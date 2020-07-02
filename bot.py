@@ -35,7 +35,7 @@ async def sorry(ctx,*,sor):
     except Exception as e:
         await ctx.send(f'Whoopsie {ctx.author.mention}, I suffered a *'+str(e)+'* error, I\'ll try again now')
         main(True,ID,sor)
-    await ctx.send(text=f'{ctx.author.mention} Your apology video is finished! Enjoy!',  file=discord.File("Finished/apology" + ID + ".mp4"))
+    await ctx.send(f'{ctx.author.mention} Your apology video is finished! Enjoy!',  file=discord.File("Finished/apology" + ID + ".mp4"))
     os.remove("Finished/apology" + ID + ".mp4")
 
 @bot.command(name='help')
