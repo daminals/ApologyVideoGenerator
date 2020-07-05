@@ -40,10 +40,9 @@ async def sorry(ctx,*,sor):
             except Exception as e:
                 ctx.send(f'*{str(e)}* is just too powerful {ctx.author.mention}. I was unable to produce your video, I suppose I now need to make an apology video of my own')
         ctx.send(f'{ctx.author.mention} Your apology video is finished! Enjoy!',file=discord.File("Finished/apology" + ID + ".mp4"))
-
+        os.remove("Finished/apology" + ID + ".mp4")
     p = multiprocessing.Process(target=avg)
     p.start()
-    os.remove("Finished/apology" + ID + ".mp4")
 
 @bot.command(name='help')
 async def help(ctx):
