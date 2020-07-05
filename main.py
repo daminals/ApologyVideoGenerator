@@ -5,7 +5,7 @@
 from gtts import gTTS
 from moviepy.editor import *
 from moviepy.audio.fx.volumex import volumex
-import os, random, ffmpy
+import os, random, ffmpy, asyncio
 
 # TODO: add subtitles 🥺😳
 # TODO: Organize different steps into separate functions (ex: tts to tts function)
@@ -49,7 +49,7 @@ def compression(input_name, output_name):
     ff.run()
 
 
-def main(bool_inp,ID,apolo=''):
+async def main(bool_inp,ID,apolo=''):
     if bool_inp:
         reason = apolo
     else:
@@ -98,13 +98,13 @@ def main(bool_inp,ID,apolo=''):
 
     def Process(final_clip, ID, NewaudioClip):
         try:
-            final_clip.set_audio(NewaudioClip).write_videofile("Temp-Files/apology" + ID + ".mov", codec="libx264",
+            await final_clip.set_audio(NewaudioClip).write_videofile("Temp-Files/apology" + ID + ".mov", codec="libx264",
                                                                audio_codec='aac', audio=True,
                                                                temp_audiofile='Temp-Files/temp-audio.m4a',
                                                                fps=30, remove_temp=True)
         except IndexError:
             print(Exception)
-            final_clip.subclip(t_end=(final_clip.duration - 1.0 / final_clip.fps)).write_videofile(
+            await final_clip.subclip(t_end=(final_clip.duration - 1.0 / final_clip.fps)).write_videofile(
                 "Temp-Files/apology" + ID + ".mov", codec="libx264", audio_codec='aac',
                 audio=True, temp_audiofile='Temp-Files/temp-audio.m4a', fps=30,
                 remove_temp=True)
@@ -132,4 +132,4 @@ def main(bool_inp,ID,apolo=''):
 
 if __name__ == '__main__':
     ID = gen_ID(4)
-    main(False,ID)
+    asyncio.run(main(False,ID))
