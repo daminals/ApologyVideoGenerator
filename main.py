@@ -79,13 +79,13 @@ def main(bool_inp,ID,apolo=''):
 
     print('Processing video...')
 
-    clip1 = random.choice("./Assets/clips")
-    clip2 = random.choice("./Assets/clips")
+    clip1 = random.choice(os.listdir("./Assets/clips"))
+    clip2 = random.choice(os.listdir("./Assets/clips"))
     while clip2 == clip1:
-        clip2 = random.choice("./Assets/clips")
-    clip3 = random.choice("./Assets/clips")
+        clip2 = random.choice(os.listdir("./Assets/clips"))
+    clip3 = random.choice(os.listdir("./Assets/clips"))
     while clip3 == clip2 or clip3 == clip1:
-        clip3 = random.choice("./Assets/clips")
+        clip3 = random.choice(os.listdir("./Assets/clips"))
 
     """    
     list_num = [1, 2, 3, 4, 5, 6, 7,8,9,10,11]
