@@ -87,15 +87,6 @@ def main(bool_inp,ID,apolo=''):
     while clip3 == clip2 or clip3 == clip1:
         clip3 = random.choice(os.listdir("./Assets/clips"))
 
-    """    
-    list_num = [1, 2, 3, 4, 5, 6, 7,8,9,10,11]
-    clip1 = random.choice(list_num)
-    list_num.remove(clip1)
-    clip2 = random.choice(list_num)
-    list_num.remove(clip2)
-    clip3 = random.choice(list_num)
-    # print(clip1,clip2,clip3)
-    """
     clip1 = VideoFileClip("Assets/clips/" + clip1)
     clip2 = VideoFileClip("Assets/clips/" + clip2)
     clip3 = VideoFileClip("Assets/clips/" + clip3)
