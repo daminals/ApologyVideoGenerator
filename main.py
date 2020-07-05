@@ -75,7 +75,6 @@ def main(bool_inp,ID,apolo=''):
         print(MusicFile)
     backgroundMusic = backgroundMusic.set_duration(audioClip.duration)
     NewaudioClip = CompositeAudioClip([audioClip, backgroundMusic]).set_duration(audioClip.duration)
-    #NewaudioClip = backgroundMusic
     print('Audio has been processed....')
 
     print('Processing video...')
@@ -99,24 +98,30 @@ def main(bool_inp,ID,apolo=''):
 
     def Process(final_clip, ID, NewaudioClip):
         try:
-            final_clip.set_audio(NewaudioClip).write_videofile("Temp-Files/apology" + ID + ".mov", codec="libx264",
+            await final_clip.set_audio(NewaudioClip).write_videofile("Temp-Files/apology" + ID + ".mov", codec="libx264",
                                                                audio_codec='aac', audio=True,
                                                                temp_audiofile='Temp-Files/temp-audio.m4a',
                                                                fps=30, remove_temp=True)
         except IndexError:
             print(Exception)
-            final_clip.subclip(t_end=(final_clip.duration - 1.0 / final_clip.fps)).write_videofile(
+            await final_clip.subclip(t_end=(final_clip.duration - 1.0 / final_clip.fps)).write_videofile(
                 "Temp-Files/apology" + ID + ".mov", codec="libx264", audio_codec='aac',
                 audio=True, temp_audiofile='Temp-Files/temp-audio.m4a', fps=30,
                 remove_temp=True)
+
         except Exception as e:
             print(e)
             Process(final_clip, ID, NewaudioClip)
 
-    Process(final_clip, ID, NewaudioClip)
+    try:
+        Process(final_clip, ID, NewaudioClip)
+    except Exception as e:
+        print(e)
+        clutter()
+
     print('Video processed...')
     print('Compressing video...')
-    compression("Temp-Files/apology" + ID + ".mov", "Finished/apology" + ID + ".mp4")
+    await compression("Temp-Files/apology" + ID + ".mov", "Finished/apology" + ID + ".mp4")
     os.remove("Temp-Files/apology" + ID + ".mov")
     print('Video compressed...')
 
