@@ -79,6 +79,15 @@ def main(bool_inp,ID,apolo=''):
 
     print('Processing video...')
 
+    clip1 = random.choice("./Assets/clips")
+    clip2 = random.choice("./Assets/clips")
+    while clip2 == clip1:
+        clip2 = random.choice("./Assets/clips")
+    clip3 = random.choice("./Assets/clips")
+    while clip3 == clip2 or clip3==clip1:
+        clip3 = random.choice("./Assets/clips")
+
+    """    
     list_num = [1, 2, 3, 4, 5, 6, 7,8,9,10,11]
     clip1 = random.choice(list_num)
     list_num.remove(clip1)
@@ -86,10 +95,10 @@ def main(bool_inp,ID,apolo=''):
     list_num.remove(clip2)
     clip3 = random.choice(list_num)
     # print(clip1,clip2,clip3)
-
-    clip1 = VideoFileClip("Assets/" + str(clip1) + ".mp4")
-    clip2 = VideoFileClip("Assets/" + str(clip2) + ".mp4")
-    clip3 = VideoFileClip("Assets/" + str(clip3) + ".mp4")
+    """
+    clip1 = VideoFileClip("Assets/clips" + clip1)
+    clip2 = VideoFileClip("Assets/clips" + clip2)
+    clip3 = VideoFileClip("Assets/clips" + clip3)
 
     # backgroundMusic = volumex(backgroundMusic, 0.1)
 
