@@ -84,7 +84,7 @@ def main(bool_inp,ID,apolo=''):
     while clip2 == clip1:
         clip2 = random.choice("./Assets/clips")
     clip3 = random.choice("./Assets/clips")
-    while clip3 == clip2 or clip3==clip1:
+    while clip3 == clip2 or clip3 == clip1:
         clip3 = random.choice("./Assets/clips")
 
     """    
@@ -96,9 +96,9 @@ def main(bool_inp,ID,apolo=''):
     clip3 = random.choice(list_num)
     # print(clip1,clip2,clip3)
     """
-    clip1 = VideoFileClip("Assets/clips" + clip1)
-    clip2 = VideoFileClip("Assets/clips" + clip2)
-    clip3 = VideoFileClip("Assets/clips" + clip3)
+    clip1 = VideoFileClip("Assets/clips/" + clip1)
+    clip2 = VideoFileClip("Assets/clips/" + clip2)
+    clip3 = VideoFileClip("Assets/clips/" + clip3)
 
     # backgroundMusic = volumex(backgroundMusic, 0.1)
 
