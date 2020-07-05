@@ -32,11 +32,11 @@ async def sorry(ctx,*,sor):
     ID = gen_ID(4)
     def avg():
         try:
-            await main(True,ID,sor)
+            main(True,ID,sor)
         except Exception as e:
             await ctx.send(f'Whoopsie {ctx.author.mention}, I suffered a *'+str(e)+'* error, I\'ll try again now')
             try:
-                await main(True,ID,sor)
+                main(True,ID,sor)
             except Exception as e:
                 ctx.send(f'*{str(e)}* is just too powerful {ctx.author.mention}. I was unable to produce your video, I suppose I now need to make an apology video of my own')
     p = multiprocessing.Process(target=avg)
