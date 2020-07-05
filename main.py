@@ -98,13 +98,13 @@ def main(bool_inp,ID,apolo=''):
 
     def Process(final_clip, ID, NewaudioClip):
         try:
-            await final_clip.set_audio(NewaudioClip).write_videofile("Temp-Files/apology" + ID + ".mov", codec="libx264",
+            final_clip.set_audio(NewaudioClip).write_videofile("Temp-Files/apology" + ID + ".mov", codec="libx264",
                                                                audio_codec='aac', audio=True,
                                                                temp_audiofile='Temp-Files/temp-audio.m4a',
                                                                fps=30, remove_temp=True)
         except IndexError:
             print(Exception)
-            await final_clip.subclip(t_end=(final_clip.duration - 1.0 / final_clip.fps)).write_videofile(
+            final_clip.subclip(t_end=(final_clip.duration - 1.0 / final_clip.fps)).write_videofile(
                 "Temp-Files/apology" + ID + ".mov", codec="libx264", audio_codec='aac',
                 audio=True, temp_audiofile='Temp-Files/temp-audio.m4a', fps=30,
                 remove_temp=True)
@@ -121,7 +121,7 @@ def main(bool_inp,ID,apolo=''):
 
     print('Video processed...')
     print('Compressing video...')
-    await compression("Temp-Files/apology" + ID + ".mov", "Finished/apology" + ID + ".mp4")
+    compression("Temp-Files/apology" + ID + ".mov", "Finished/apology" + ID + ".mp4")
     os.remove("Temp-Files/apology" + ID + ".mov")
     print('Video compressed...')
 
