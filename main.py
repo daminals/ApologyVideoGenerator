@@ -9,7 +9,7 @@ import os, random, ffmpy, asyncio
 
 # TODO: add subtitles 🥺😳
 # TODO: Organize different steps into separate functions (ex: tts to tts function)
-# TODO: Make into a website and/or discord bot
+# TODO: Make into a website and/or discord bot -- COMPLETED DISC BOT
 # TODO: DEBUG!!! It crashes and is unable to load the video every so often, and that must be fixed
 
 language = 'en'
@@ -41,7 +41,7 @@ def clutter():
             os.remove('Temp-Files/' + i)
 
 
-def compression(input_name, output_name):
+async def compression(input_name, output_name):
     inp = {input_name: None}
     outp = {output_name: f'-vcodec libx264 -b 500k'}
     ff = ffmpy.FFmpeg(inputs=inp, outputs=outp)
@@ -121,7 +121,7 @@ async def main(bool_inp,ID,apolo=''):
 
     print('Video processed...')
     print('Compressing video...')
-    compression("Temp-Files/apology" + ID + ".mov", "Finished/apology" + ID + ".mp4")
+    await compression("Temp-Files/apology" + ID + ".mov", "Finished/apology" + ID + ".mp4")
     os.remove("Temp-Files/apology" + ID + ".mov")
     print('Video compressed...')
 

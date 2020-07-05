@@ -3,7 +3,7 @@
 # Daniel Kogan, 06/01/2020
 
 import os, sys
-import discord, random, asyncio
+import discord, random, asyncio, multiprocessing
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -30,14 +30,17 @@ async def sorry(ctx,*,sor):
     print('transforming '+ sor+ ' into an apology video')
     await ctx.send('Processing... \nthis may take a while...')
     ID = gen_ID(4)
-    try:
-        await main(True,ID,sor)
-    except Exception as e:
-        await ctx.send(f'Whoopsie {ctx.author.mention}, I suffered a *'+str(e)+'* error, I\'ll try again now')
+    def avg():
         try:
             await main(True,ID,sor)
         except Exception as e:
-            ctx.send(f'*{str(e)}* is just too powerful {ctx.author.mention}. I was unable to produce your video, I suppose I now need to make an apology video of my own')
+            await ctx.send(f'Whoopsie {ctx.author.mention}, I suffered a *'+str(e)+'* error, I\'ll try again now')
+            try:
+                await main(True,ID,sor)
+            except Exception as e:
+                ctx.send(f'*{str(e)}* is just too powerful {ctx.author.mention}. I was unable to produce your video, I suppose I now need to make an apology video of my own')
+    p = multiprocessing.Process(target=avg)
+    p.start()
     await ctx.send(f'{ctx.author.mention} Your apology video is finished! Enjoy!',  file=discord.File("Finished/apology" + ID + ".mp4"))
     os.remove("Finished/apology" + ID + ".mp4")
 
