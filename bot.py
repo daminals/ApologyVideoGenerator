@@ -34,7 +34,7 @@ async def sorry(ctx,*,sor):
         try:
             main(True,ID,sor)
         except Exception as e:
-            await ctx.send(f'Whoopsie {ctx.author.mention}, I suffered a *'+str(e)+'* error, I\'ll try again now')
+            ctx.send(f'Whoopsie {ctx.author.mention}, I suffered a *'+str(e)+'* error, I\'ll try again now')
             try:
                 main(True,ID,sor)
             except Exception as e:
