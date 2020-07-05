@@ -30,19 +30,16 @@ async def sorry(ctx,*,sor):
     print('transforming '+ sor+ ' into an apology video')
     await ctx.send('Processing... \nthis may take a while...')
     ID = gen_ID(4)
-    def avg():
+    try:
+        await main(True,ID,sor)
+    except Exception as e:
+        await ctx.send(f'Whoopsie {ctx.author.mention}, I suffered a *'+str(e)+'* error, I\'ll try again now')
         try:
-            main(True,ID,sor)
+            await main(True,ID,sor)
         except Exception as e:
-            ctx.send(f'Whoopsie {ctx.author.mention}, I suffered a *'+str(e)+'* error, I\'ll try again now')
-            try:
-                main(True,ID,sor)
-            except Exception as e:
-                ctx.send(f'*{str(e)}* is just too powerful {ctx.author.mention}. I was unable to produce your video, I suppose I now need to make an apology video of my own')
-        ctx.send(f'{ctx.author.mention} Your apology video is finished! Enjoy!',file=discord.File("Finished/apology" + ID + ".mp4"))
-        os.remove("Finished/apology" + ID + ".mp4")
-    p = multiprocessing.Process(target=avg)
-    p.start()
+            ctx.send(f'*{str(e)}* is just too powerful {ctx.author.mention}. I was unable to produce your video, I suppose I now need to make an apology video of my own')
+    await ctx.send(f'{ctx.author.mention} Your apology video is finished! Enjoy!',  file=discord.File("Finished/apology" + ID + ".mp4"))
+    os.remove("Finished/apology" + ID + ".mp4")
 
 @bot.command(name='help')
 async def help(ctx):
