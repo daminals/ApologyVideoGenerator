@@ -23,7 +23,6 @@ numpy==1.19.0
 Pillow==7.2.0
 proglog==0.1.9
 pycparser==2.20
-pydub==0.24.1
 python-dotenv==0.13.0
 requests==2.24.0
 scipy==1.5.0
@@ -33,4 +32,3 @@ tqdm==4.47.0
 urllib3==1.25.9
 websockets==8.1
 yarl==1.4.2
-youtube-dl==2020.6.16.1
