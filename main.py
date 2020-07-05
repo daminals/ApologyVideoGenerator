@@ -7,7 +7,7 @@ from moviepy.editor import *
 from moviepy.audio.fx.volumex import volumex
 import os, random, ffmpy
 
-# TODO: add subtitles
+# TODO: add subtitles 🥺😳
 # TODO: Organize different steps into separate functions (ex: tts to tts function)
 # TODO: Make into a website and/or discord bot
 # TODO: DEBUG!!! It crashes and is unable to load the video every so often, and that must be fixed
@@ -75,6 +75,7 @@ def main(bool_inp,ID,apolo=''):
         print(MusicFile)
     backgroundMusic = backgroundMusic.set_duration(audioClip.duration)
     NewaudioClip = CompositeAudioClip([audioClip, backgroundMusic]).set_duration(audioClip.duration)
+    #NewaudioClip = backgroundMusic
     print('Audio has been processed....')
 
     print('Processing video...')
