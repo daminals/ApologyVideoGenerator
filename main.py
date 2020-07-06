@@ -41,7 +41,7 @@ def clutter():
             os.remove('Temp-Files/' + i)
 
 
-async def compression(input_name, output_name):
+def compression(input_name, output_name):
     inp = {input_name: None}
     outp = {output_name: f'-vcodec libx264 -b 500k'}
     ff = ffmpy.FFmpeg(inputs=inp, outputs=outp)
@@ -121,7 +121,7 @@ async def main(bool_inp,ID,apolo=''):
 
     print('Video processed...')
     print('Compressing video...')
-    await compression("Temp-Files/apology" + ID + ".mov", "Finished/apology" + ID + ".mp4")
+    compression("Temp-Files/apology" + ID + ".mov", "Finished/apology" + ID + ".mp4")
     os.remove("Temp-Files/apology" + ID + ".mov")
     print('Video compressed...')
 
