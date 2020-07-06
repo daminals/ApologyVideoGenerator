@@ -20,8 +20,6 @@ async def on_ready():
     servers = list(bot.guilds)
     server_num = len(servers)
     await bot.change_presence(
-        # "you all code"
-        # "myself break over & over"
         activity=discord.Activity(type=discord.ActivityType.watching, name=f"over {server_num} servers| s!help"))
 
 
