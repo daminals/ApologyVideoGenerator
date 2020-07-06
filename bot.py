@@ -28,7 +28,7 @@ async def on_ready():
 @bot.command(name='sorry')
 async def sorry(ctx,*,sor):
     print('transforming '+ sor+ ' into an apology video')
-    await ctx.send('Processing... \nthis may take a while...')
+    await ctx.send('Processing... \nthis usually takes about 2 minutes...')
     ID = gen_ID(4)
     try:
         await main(True,ID,sor)
