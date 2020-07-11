@@ -1,0 +1,2 @@
+Assets/clips/*.mp4 filter=lfs diff=lfs merge=lfs -text
+Assets/music/*.mp3 filter=lfs diff=lfs merge=lfs -text
