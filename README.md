@@ -11,7 +11,7 @@ To that end, this program aims to automate the creation of Apology vidoes, and i
 
 UPDATE: Discord bot functionality has been attached
 
-<img scr="https://github.com/daminals/ApologyVideoGenerator/blob/master/Assets/demonstration/worked.png" width="600">
+<img src="https://github.com/daminals/ApologyVideoGenerator/blob/master/Assets/demonstration/worked.png" width="600">
 
 # Next Steps
 
