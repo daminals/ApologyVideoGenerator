@@ -7,9 +7,11 @@ In order to maximize efficiency, a combination of sad videos with a text to spee
 
 To that end, this program aims to automate the creation of Apology vidoes, and it achieves its purpose!
 
-<img scr="" width="600">
+[![](https://res.cloudinary.com/marcomontalbano/image/upload/v1594592001/video_to_markdown/images/youtube--Cjb45G58kk8-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/Cjb45G58kk8 "")
 
 UPDATE: Discord bot functionality has been attached
+
+<img scr="https://github.com/daminals/ApologyVideoGenerator/blob/master/Assets/demonstration/worked.png" width="600">
 
 # Next Steps
 
