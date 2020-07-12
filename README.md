@@ -13,6 +13,8 @@ UPDATE: Discord bot functionality has been attached
 
 Despite the actual program being finished, there is more I'd like to do with it. Namely, upload it onto a simple website to allow anybody to generate their own apology videos
 
+Implement a Java GUI to make video generation significantly nicer
+
 Improve discord bot functionality-- Current method of operation engages in blocking, which is not ideal for a discord bot.
 
 In addition, there are more bugs than I would like in the program, and they cause it to crash every so often. These bugs are typically within writing videos to file, and mixing the audio
