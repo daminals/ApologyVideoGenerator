@@ -9,7 +9,10 @@ To that end, this program aims to automate the creation of Apology vidoes, and i
 
 [![](https://res.cloudinary.com/marcomontalbano/image/upload/v1594592001/video_to_markdown/images/youtube--Cjb45G58kk8-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/Cjb45G58kk8 "")
 
-UPDATE: Discord bot functionality has been attached
+# Discord Bot
+Discord bot functionality has been attached!
+
+SorryBot now generates videos on a heroku backend, and sends them to your discord server after just  2 minutes!
 
 <img src="https://github.com/daminals/ApologyVideoGenerator/blob/master/Assets/demonstration/worked.png" width="600">
 
