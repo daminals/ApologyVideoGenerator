@@ -7,6 +7,8 @@ In order to maximize efficiency, a combination of sad videos with a text to spee
 
 To that end, this program aims to automate the creation of Apology vidoes, and it achieves its purpose!
 
+<img scr="" width="600">
+
 UPDATE: Discord bot functionality has been attached
 
 # Next Steps
