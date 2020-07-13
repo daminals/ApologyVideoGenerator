@@ -43,7 +43,7 @@ def clutter():
 
 def compression(input_name, output_name):
     inp = {input_name: None}
-    outp = {output_name: f'-vcodec libx264 -crf 28'}
+    outp = {output_name: f'-vcodec libx264 -crf 23'}
     ff = ffmpy.FFmpeg(inputs=inp, outputs=outp)
     print(ff.cmd)
     ff.run()
