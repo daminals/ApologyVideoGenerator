@@ -34,6 +34,7 @@ public class Controller implements Initializable {
         videoText.clear();
         System.out.println(reason);
         mediaView.setVisible(true);
+        fileName.setVisible(true);
         mediaPlayer.setAutoPlay(true);
 
     }
@@ -44,6 +45,8 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         pane.setPadding(new Insets(0,0,0,13));
+        fileName.setText("video.mp4");
+        fileName.setVisible(false);
 
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(false);
