@@ -1,5 +1,7 @@
 # ApologyVideoGenerator
 
+_This Branch (master) is the discord bot version_
+
 A problem our generation faces is the need to apologize for the horrible things we have done.
 Youtube sensations do so many horrible things, and apologize in such a generic and uniform way, the apology video has become its own 'unqiue' genre (I say 'unque' because these videos are all practically the same)
 
