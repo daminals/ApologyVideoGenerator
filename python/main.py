@@ -5,11 +5,10 @@
 from gtts import gTTS
 from moviepy.editor import *
 from moviepy.audio.fx.volumex import volumex
-import os, random, ffmpy, asyncio, fire
+import os, random, ffmpy, asyncio, fire,time
 
 # TODO: add subtitles 🥺😳
 # TODO: Organize different steps into separate functions (ex: tts to tts function)
-# TODO: Make into a website and/or discord bot -- COMPLETED DISC BOT
 # TODO: DEBUG!!! It crashes and is unable to load the video every so often, and that must be fixed
 
 language = 'en'
@@ -50,6 +49,7 @@ def compression(input_name, output_name):
 
 
 def main(bool_inp,ID,apolo=''):
+    print(bool_inp,ID,apolo)
     ID = str(ID)
     if bool_inp:
         reason = apolo
