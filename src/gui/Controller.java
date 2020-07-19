@@ -1,25 +1,19 @@
 package gui;
-
 import java.io.File;
-import java.net.MalformedURLException;
-import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaView;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.*;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+
 import javafx.scene.media.*;
+import javafx.fxml.Initializable;
+import javafx.geometry.*;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.util.Duration;
+
+
+//TODO: Make program report current messages (processing audio... processing video... etc)
 
 public class Controller implements Initializable {
 
@@ -28,6 +22,10 @@ public class Controller implements Initializable {
     public MediaView mediaView;
     public GridPane pane;
     public Label fileName;
+    public Button play;
+    public HBox leUserControl;
+    public boolean pause_play = true;
+    public Slider Timer;
 
     public void build(){
         String reason = videoText.getText();
@@ -35,7 +33,20 @@ public class Controller implements Initializable {
         System.out.println(reason);
         mediaView.setVisible(true);
         fileName.setVisible(true);
-        mediaPlayer.setAutoPlay(true);
+        leUserControl.setVisible(true);
+        Timer.setVisible(true);
+
+        mediaPlayer.currentTimeProperty().addListener((observable, oldTime, newTime) -> {
+            Timer.setValue((newTime.toMillis() / mediaPlayer.getTotalDuration().toMillis())*100);
+        });
+        Timer.valueProperty().addListener((observable,oldValue,newValue) -> {
+            if (Math.abs((double) newValue - (double) oldValue) >= 0.5) {
+                Double difference = (double) newValue / 100;
+                Duration bruh = Duration.millis(difference);
+                Duration comp = bruh.multiply(mediaPlayer.getTotalDuration().toMillis());
+                mediaPlayer.seek(comp);
+            }
+        });
 
     }
 
@@ -45,6 +56,9 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         pane.setPadding(new Insets(0,0,0,13));
+        leUserControl.setVisible(false);
+        Timer.setVisible(false);
+
         fileName.setText("video.mp4");
         fileName.setVisible(false);
 
@@ -52,7 +66,17 @@ public class Controller implements Initializable {
         mediaPlayer.setAutoPlay(false);
         mediaView.setMediaPlayer(mediaPlayer);
         mediaView.setVisible(false);
+    }
 
+    public void play() {
+        if (pause_play){
+            play.setText("||");
+            mediaPlayer.play();
+            pause_play = false;
+        }else{
+            play.setText(">");
+            mediaPlayer.pause();
+            pause_play = true;
         }
-
+    }
 }
