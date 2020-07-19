@@ -1,6 +1,7 @@
 package gui;
 import java.io.*;
 
+import javafx.event.EventHandler;
 import javafx.scene.media.*;
 import javafx.fxml.Initializable;
 import javafx.geometry.*;
@@ -8,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import java.nio.*;
 import java.nio.file.*;
+import javafx.concurrent.*;
+
 
 
 import java.net.URL;
@@ -15,16 +18,14 @@ import java.nio.file.FileSystems;
 import java.nio.file.WatchService;
 import java.security.PublicKey;
 import java.util.*;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 import javafx.util.Duration;
 
 
 //TODO: Make program report current messages (processing audio... processing video... etc)
 
-public class Controller implements Initializable {
+public class Controller implements Initializable{
 
     public Button build;
     public TextField videoText;
@@ -36,17 +37,20 @@ public class Controller implements Initializable {
     public boolean pause_play = true;
     public Slider Timer;
     public String ID;
+    public display_video displayVideo = new display_video();
 
-    ExecutorService avg = Executors.newFixedThreadPool(3);
 
-    public void build(){
-        String reason = videoText.getText();
-        videoText.clear();
-        System.out.println(reason);
-        mediaView.setVisible(true);
-        fileName.setVisible(true);
+    ExecutorService avg = Executors.newSingleThreadExecutor();
+
+    public void changevid(){
         leUserControl.setVisible(true);
         Timer.setVisible(true);
+
+        media = new Media(new File("python/Finished/apology"+ID+".mp4").toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        mediaView.setMediaPlayer(mediaPlayer);
+
+
 
         mediaPlayer.currentTimeProperty().addListener((observable, oldTime, newTime) -> {
             Timer.setValue((newTime.toMillis() / mediaPlayer.getTotalDuration().toMillis())*100);
@@ -59,15 +63,21 @@ public class Controller implements Initializable {
                 mediaPlayer.seek(comp);
             }
         });
+        
+    }
+    public String reason;
 
-        ID = callProgram.gen_ID(4);
-        callProgram ApologyVideo = new callProgram(ID,reason);
-        avg.execute(ApologyVideo);
-        //callProgram.runMainPY(ID,reason);
+    public void build() throws ExecutionException, InterruptedException {
+        reason = videoText.getText();
+        videoText.clear();
+        System.out.println(reason);
+        mediaView.setVisible(true);
+        fileName.setVisible(true);
 
-        media = new Media(new File("python/Finished/apology"+ID+".mp4").toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
-        mediaView .setMediaPlayer(mediaPlayer);
+
+
+        ID = renderer.gen_ID(4);
+        displayVideo.restart();
 
     }
 
@@ -86,7 +96,7 @@ public class Controller implements Initializable {
         loading = new Media(new File("src/media/ytload.mp4").toURI().toString());
 
         mediaPlayer = new MediaPlayer(loading);
-        mediaPlayer.setAutoPlay(false);
+        mediaPlayer.setAutoPlay(true);
         mediaView.setMediaPlayer(mediaPlayer);
         mediaView.setVisible(false);
     }
@@ -100,6 +110,30 @@ public class Controller implements Initializable {
             play.setText(">");
             mediaPlayer.pause();
             pause_play = true;
+        }
+    }
+
+    private class display_video extends Service {
+
+        @Override
+        protected Task<String> createTask() {
+            return new Task<String>() {
+                @Override
+                protected String call() throws Exception {
+
+
+                    return renderer.runMainPY(ID,reason);
+                }
+                @Override
+                protected void succeeded(){
+                    Timer.setValue(0);
+                    changevid();
+                    fileName.setText("apology"+ID+".mp4");
+                }
+                protected void failed(){
+                    fileName.setText("VIDEO FAILED");
+                }
+            };
         }
     }
 }
