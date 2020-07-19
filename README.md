@@ -9,10 +9,8 @@ To that end, this program aims to automate the creation of Apology vidoes, and i
 
 [![](https://res.cloudinary.com/marcomontalbano/image/upload/v1594592001/video_to_markdown/images/youtube--Cjb45G58kk8-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/Cjb45G58kk8 "")
 
-# Discord Bot
-Discord bot functionality has been attached!
-
-SorryBot now generates videos on a heroku backend, and sends them to your discord server after just  2 minutes!
+# Java GUI
+After continuous work, a frontend GUI for users is finally operational. This allows users to not only generate their video outside of the command line, but also VIEW the video within the GUI!
 
 <img src="https://github.com/daminals/ApologyVideoGenerator/blob/master/Assets/demonstration/worked.png" width="600">
 
@@ -20,12 +18,12 @@ SorryBot now generates videos on a heroku backend, and sends them to your discor
 
 Despite the actual program being finished, there is more I'd like to do with it. Namely, upload it onto a simple website to allow anybody to generate their own apology videos
 
-Implement a Java GUI to make video generation significantly nicer
-
 Improve discord bot functionality-- Current method of operation engages in blocking, which is not ideal for a discord bot.
 
 In addition, there are more bugs than I would like in the program, and they cause it to crash every so often. These bugs are typically within writing videos to file, and mixing the audio
 
 # Installation
 
-In addition to requirements.txt, ffmpeg must be installed on your computer for this program to function
+For this to be functional, a virtualenv MUST be created in the python directory, with all of the requirements installed (requirements.txt). 3.7.6 is the preferable python version. Ffmpeg must also be installed on your computer for this program to function
+
+Lastly, your VM arguments should be --module-path "/path/to/javafx/javafx-sdk-14.0.1/lib" --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.web,javafx.swt with JavaFX installed.

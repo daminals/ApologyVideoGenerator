@@ -63,7 +63,7 @@ public class Controller implements Initializable{
                 mediaPlayer.seek(comp);
             }
         });
-        
+
     }
     public String reason;
 
