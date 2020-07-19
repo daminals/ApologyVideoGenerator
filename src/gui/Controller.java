@@ -120,18 +120,18 @@ public class Controller implements Initializable{
             return new Task<String>() {
                 @Override
                 protected String call() throws Exception {
-
-
                     return renderer.runMainPY(ID,reason);
                 }
                 @Override
                 protected void succeeded(){
+                    File video = new File("python/Finished/apology"+ID+".mp4");
+                    if (video.exists()){
                     Timer.setValue(0);
                     changevid();
                     fileName.setText("apology"+ID+".mp4");
-                }
-                protected void failed(){
-                    fileName.setText("VIDEO FAILED");
+                    }else{
+                        fileName.setText("VIDEO FAILED");
+                    }
                 }
             };
         }
