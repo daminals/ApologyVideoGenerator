@@ -12,7 +12,7 @@ To that end, this program aims to automate the creation of Apology vidoes, and i
 # Java GUI
 After continuous work, a frontend GUI for users is finally operational. This allows users to not only generate their video outside of the command line, but also VIEW the video within the GUI!
 
-<img src="https://github.com/daminals/ApologyVideoGenerator/blob/master/Assets/demonstration/worked.png" width="600">
+<img src="https://github.com/daminals/ApologyVideoGenerator/blob/java/python/Assets/demonstration/gui_worked.png" width="600">
 
 # Next Steps
 
