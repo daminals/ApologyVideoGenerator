@@ -1,6 +1,6 @@
 package gui;
-import java.io.*;
 
+import java.io.*;
 import javafx.event.EventHandler;
 import javafx.scene.media.*;
 import javafx.fxml.Initializable;
@@ -10,18 +10,13 @@ import javafx.scene.layout.*;
 import java.nio.*;
 import java.nio.file.*;
 import javafx.concurrent.*;
-
-
-
 import java.net.URL;
 import java.nio.file.FileSystems;
 import java.nio.file.WatchService;
 import java.security.PublicKey;
 import java.util.*;
 import java.util.concurrent.*;
-
 import javafx.util.Duration;
-
 
 //TODO: Make program report current messages (processing audio... processing video... etc)
 
@@ -39,9 +34,6 @@ public class Controller implements Initializable{
     public String ID;
     public display_video displayVideo = new display_video();
 
-
-    ExecutorService avg = Executors.newSingleThreadExecutor();
-
     public void changevid(){
         leUserControl.setVisible(true);
         Timer.setVisible(true);
@@ -49,8 +41,6 @@ public class Controller implements Initializable{
         media = new Media(new File("python/Finished/apology"+ID+".mp4").toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaView.setMediaPlayer(mediaPlayer);
-
-
 
         mediaPlayer.currentTimeProperty().addListener((observable, oldTime, newTime) -> {
             Timer.setValue((newTime.toMillis() / mediaPlayer.getTotalDuration().toMillis())*100);

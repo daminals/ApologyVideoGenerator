@@ -11,9 +11,6 @@ public interface renderer {
             System.out.println(s);
         }
     }
-
-
-
     static String runMainPY(String ID, String reason) {
         try {
             String[] command = new String[] {"/bin/zsh","-c","cd python && source venv/bin/activate && python main.py main --bool_inp=True --ID='"+ID+"' --apolo='"+reason+"'" };
@@ -25,7 +22,6 @@ public interface renderer {
         }
         return "python/Finished/apology"+ID+".mp4";
     }
-
     static String gen_ID(int range){
         String ID = "";
         int rand;
@@ -35,6 +31,4 @@ public interface renderer {
         }
         return ID;
     }
-
-
 }
