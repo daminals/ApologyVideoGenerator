@@ -74,11 +74,8 @@ public class Controller implements Initializable{
         mediaView.setVisible(true);
         fileName.setVisible(true);
 
-
-
         ID = renderer.gen_ID(4);
         displayVideo.restart();
-
     }
 
     public MediaPlayer mediaPlayer;
@@ -114,7 +111,6 @@ public class Controller implements Initializable{
     }
 
     private class display_video extends Service {
-
         @Override
         protected Task<String> createTask() {
             return new Task<String>() {
@@ -129,7 +125,7 @@ public class Controller implements Initializable{
                     Timer.setValue(0);
                     changevid();
                     fileName.setText("apology"+ID+".mp4");
-                    }else{
+                    }else {
                         fileName.setText("VIDEO FAILED");
                     }
                 }
