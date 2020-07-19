@@ -1,14 +1,23 @@
 package gui;
-import java.io.File;
+import java.io.*;
 
 import javafx.scene.media.*;
 import javafx.fxml.Initializable;
 import javafx.geometry.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import java.nio.*;
+import java.nio.file.*;
+
 
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.nio.file.FileSystems;
+import java.nio.file.WatchService;
+import java.security.PublicKey;
+import java.util.*;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javafx.util.Duration;
 
@@ -26,6 +35,9 @@ public class Controller implements Initializable {
     public HBox leUserControl;
     public boolean pause_play = true;
     public Slider Timer;
+    public String ID;
+
+    ExecutorService avg = Executors.newFixedThreadPool(3);
 
     public void build(){
         String reason = videoText.getText();
@@ -48,10 +60,20 @@ public class Controller implements Initializable {
             }
         });
 
+        ID = callProgram.gen_ID(4);
+        callProgram ApologyVideo = new callProgram(ID,reason);
+        avg.execute(ApologyVideo);
+        //callProgram.runMainPY(ID,reason);
+
+        media = new Media(new File("python/Finished/apology"+ID+".mp4").toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        mediaView .setMediaPlayer(mediaPlayer);
+
     }
 
-    MediaPlayer mediaPlayer;
-    Media media = new Media(new File("src/media/video.mp4").toURI().toString());
+    public MediaPlayer mediaPlayer;
+    public Media media;
+    public Media loading;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -61,8 +83,9 @@ public class Controller implements Initializable {
 
         fileName.setText("video.mp4");
         fileName.setVisible(false);
+        loading = new Media(new File("src/media/ytload.mp4").toURI().toString());
 
-        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer = new MediaPlayer(loading);
         mediaPlayer.setAutoPlay(false);
         mediaView.setMediaPlayer(mediaPlayer);
         mediaView.setVisible(false);

@@ -4,13 +4,23 @@ import javax.xml.stream.events.Comment;
 import java.io.IOException;
 
 import java.io.*;
+import java.security.PublicKey;
 import java.util.*;
 
-public class callProgram {
+public class callProgram implements Runnable{
+
+    public String ID;
+    public String reason;
+
+    public callProgram(String ID, String reason){
+        this.ID = ID;
+        this.reason = reason;
+    }
 
 
     public static void main(String[] args) throws IOException {
-        runMainPY("1234","bcuz");
+        //runMainPY("1234","bcuz");
+        //System.out.println(gen_ID(4));
 
     }
 
@@ -32,12 +42,27 @@ public class callProgram {
             Process p = Runtime.getRuntime().exec(command);
 
             printResults(p);
-            System.out.println(p.getErrorStream());
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    public static String gen_ID(int range){
+        String ID = "";
+        int rand;
+        for (int i=0;i<range;i++){
+            rand = (int) (Math.random() * 10);
+            ID += Integer.toString(rand);
+        }
+        return ID;
+    }
+
+    @Override
+    public void run() {
+        runMainPY(ID,reason);
+
+    }
+
     /*
 
     public static void Venv(){
