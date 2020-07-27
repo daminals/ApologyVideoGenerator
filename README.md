@@ -26,4 +26,4 @@ In addition, there are more bugs than I would like in the program, and they caus
 
 For this to be functional, a virtualenv MUST be created in the python directory, with all of the requirements installed (requirements.txt). 3.7.6 is the preferable python version. Ffmpeg must also be installed on your computer for this program to function
 
-Lastly, your VM arguments should be --module-path "/path/to/javafx/javafx-sdk-14.0.1/lib" --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.web,javafx.swt with JavaFX installed.
+So long as you use the run executable, the GUI should run fine
