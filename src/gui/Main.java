@@ -9,9 +9,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.media.*;
 
-import javax.swing.*;
-import java.net.URL;
-
 public class Main extends Application{
 
     @Override
