@@ -14,8 +14,7 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
-	    Image ico = new Image("file:src/media/Ico.png");
-
+	Image ico = new Image("file:src/media/Ico.png");
 
         primaryStage.setTitle("Apology Video Generator");
         primaryStage.getIcons().add(ico);
