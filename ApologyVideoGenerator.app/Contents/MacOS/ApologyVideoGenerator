@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd "$(dirname "$0")"
+
+java --module-path src/lib/src --add-modules=javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media,javafx.swing,javafx.web,javafx.swt --add-modules javafx.base,javafx.graphics --add-reads javafx.base=ALL-UNNAMED --add-reads javafx.graphics=ALL-UNNAMED -Djava.library.path=src/lib/src -Dfile.encoding=UTF-8 -classpath out/production/test2:src/lib/src/src.zip:src/lib/src/javafx-swt.jar:src/lib/src/javafx.web.jar:src/lib/src/javafx.base.jar:src/lib/src/javafx.fxml.jar:src/lib/src/javafx.media.jar:src/lib/src/javafx.swing.jar:src/lib/src/javafx.controls.jar:src/lib/src/javafx.graphics.jar -Xdock:icon="src/media/Ico.png" gui.Main
+
+

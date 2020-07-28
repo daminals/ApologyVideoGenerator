@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
+
+<HBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller">
+    <Pane prefHeight="400.0" prefWidth="308.0">
+        <TextField fx:id="videoText" layoutX="21.0" layoutY="38.0" prefHeight="29.0" prefWidth="268.0" promptText="stealing candy from a baby "/>
+        <Label alignment="CENTER" layoutX="39.0" layoutY="14.0" prefHeight="17.0" prefWidth="230.0" text="What are you apologizing for?" >
+            <font>
+                <Font name="Comic Sans MS" size="13.0" />
+            </font>
+        </Label>
+        <Button fx:id="build" layoutX="93.0" layoutY="81.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="122.0" text="Build!" onAction="#build"/>
+        <TextArea editable="false" layoutX="37.0" layoutY="132.0" prefHeight="226.0" prefWidth="236.0" text="A problem our generation faces is the need to apologize for the horrible things we have done. Youtube sensations do so many horrible things, and apologize in such a generic and uniform way, the apology video has become its own unqiue genre.&#10;&#10;In the interest of efficiency, input your reason for apology and watch your video be automatically generated!" wrapText="true">
+            <font>
+                <Font name="JetBrains Mono Regular" size="12.0" />
+            </font>
+            <effect>
+                <SepiaTone />
+            </effect>
+        </TextArea>
+    </Pane>
+    <AnchorPane prefHeight="400.0" prefWidth="400.0">
+        <children>
+            <GridPane fx:id="pane" prefHeight="400.0" prefWidth="400.0" alignment="CENTER" style="-fx-background-color: #DCDCDC;">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                        <center>
+                            <VBox>
+                                <children>
+                                    <MediaView fx:id="mediaView" fitHeight="500.0" fitWidth="375.0" BorderPane.alignment="CENTER" />
+                                    <Slider fx:id="Timer" blockIncrement="2.0" prefHeight="16.0" prefWidth="154.0" />
+                                </children>
+                            </VBox>
+                        </center>
+                        <bottom>
+                            <HBox fx:id="leUserControl" alignment="CENTER" fillHeight="false" maxWidth="-Infinity" prefHeight="100.0" prefWidth="379.0">
+                                <children>
+                                    <Button fx:id="play" onAction="#play" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="17.0" prefWidth="25.0" text="&gt;">
+                                        <font>
+                                            <Font name="Courier New" size="13.0" />
+                                        </font>
+                                    </Button>
+                                </children>
+                            </HBox>
+                        </bottom>
+                    </BorderPane>
+                    <Label fx:id="fileName" alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="376.0" text="Video.mp4" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2" />
+                </children>
+            </GridPane>
+        </children>
+    </AnchorPane>
+</HBox>
+
+
