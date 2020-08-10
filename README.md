@@ -27,4 +27,4 @@ In addition, there are more bugs than I would like in the program, and they caus
 
 This is the Mac Application version, which you can download and run on your computer, without needing anything else (except a java jdk)
 
-<a href="/daminals/ApologyVideoGenerator/archive/dot-APP.zip"> Download Link </a>
+<a href="https://github.com/daminals/ApologyVideoGenerator/archive/v1.0.3.tar.gz"> Download Link </a>
