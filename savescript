@@ -3,5 +3,5 @@
 cd "$(dirname "$0")"
 
 git commit -am 'autosave'
-git push origin master
+git push origin MacApp
 #git push heroku master
