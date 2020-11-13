@@ -1,11 +1,11 @@
 # ApologyVideoGenerator
 
 A problem our generation faces is the need to apologize for the horrible things we have done.
-Youtube sensations do so many horrible things, and apologize in such a generic and uniform way, the apology video has become its own 'unqiue' genre (I say 'unque' because these videos are all practically the same)
+Youtube sensations do so many horrible things, and apologize in such a generic and uniform way, the apology video has become its own 'unique' genre (I say 'unique' because these videos are all practically the same)
 
 In order to maximize efficiency, a combination of sad videos with a text to speech function could easily generate these videos, saving precious time.
 
-To that end, this program aims to automate the creation of Apology vidoes, and it achieves its purpose!
+To that end, this program aims to automate the creation of Apology videos, and it achieves its purpose!
 
 [![](https://res.cloudinary.com/marcomontalbano/image/upload/v1594592001/video_to_markdown/images/youtube--Cjb45G58kk8-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/Cjb45G58kk8 "")
 
