@@ -121,7 +121,10 @@ async def main(bool_inp,ID,apolo=''):
 
     print('Video processed...')
     print('Compressing video...')
-    compression("Temp-Files/apology" + ID + ".mov", "Finished/apology" + ID + ".mp4")
+    try:
+        compression("Temp-Files/apology" + ID + ".mov", "Finished/apology" + ID + ".mp4")
+    except Exception as e:
+        print(e)
     os.remove("Temp-Files/apology" + ID + ".mov")
     print('Video compressed...')
 
