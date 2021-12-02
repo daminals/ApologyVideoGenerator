@@ -28,5 +28,5 @@ The gTTS module is much slower than pyttsx3, but pyttsx3 does not work through h
 ```
 $ touch .env
 $ echo TOKEN=\'YOUR_DISCORD_BOT_TOKEN\' >> .env
-$ ./run
+$ ./build
 ```

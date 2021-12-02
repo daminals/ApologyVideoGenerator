@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")"
 
-if (source python/venv/bin/activate) ; then
+if (source venv/bin/activate) ; then
 		echo "venv installed 👍"
 else 
 		cd python
