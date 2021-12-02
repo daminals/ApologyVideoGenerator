@@ -82,7 +82,7 @@ async def main(bool_inp,ID,apolo=''):
         reason = input('Why are you apologizing? ')
     Intro = random.choice(apology_intros)
     Middle_part = f".  I am deeply and truly sorry for {reason.lower()}. It was wrong, disgraceful, and I promise it will never happen again,  .   {reason.lower()} {random.choice(wrongness_list)}. . .  {random.choice(middle)}"
-    Conclusion = f' {random.choice(thank_u)}. {random.choice(challenge)} {random.choice(bs)}. I love each of you guys so so much. Thank you, and Don\'t forget to SMASH that like button and subscribe for more content!'
+    Conclusion = f' {random.choice(thank_u)}. {random.choice(challenge)} {random.choice(bs)}. I love each of you guys so   so much. Thank you, and Don\'t forget to SMASH that like button and subscribe for more content!       .    '
     script = Intro + Middle_part + Conclusion
     print('Processing audio...')
     
