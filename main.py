@@ -39,10 +39,10 @@ middle = ["I don't want your forgiveness, just the open space to be able to say 
           ]
 
 challenge = ["It's just been so hard for me since",
-             "Life has always been difficult for me.",
-             "I don't even know what I'm doing anymore.",
-             "Life for me is like that tiktok taylor swift audio: Screaming! Crying!",
-             "You just wouldn't understand the pain of being the only funny youtuber"
+             "Life has always been difficult for me.   ",
+             "I don't even know what I'm doing anymore.  ",
+             "Life for me is like that tiktok taylor swift audio: Screaming! Crying!   ",
+             "You just wouldn't understand the pain of being the only funny youtuber.   "
              ]
 
 wrongness_list = ["is the worst thing I have ever done in my entire life, no contest",
