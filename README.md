@@ -20,9 +20,9 @@ Attaching the generator to a discord bot via heroku server was difficult, but ap
 
 Despite the actual program being finished, there is more I'd like to do with it. Namely, upload it onto a simple website to allow anybody to generate their own apology videos
 
-Improve discord bot functionality-- Current method of operation engages in blocking, which is not ideal for a discord bot.
+Add more hosts and possible threads. The bot is not scalable as it only has one worker, and the worker must finish building a video before it can be called to build another video. This means the discord bot engages in blocking, and cannot handle multiple simultaneous requests.
 
-In addition, there are more bugs than I would like in the program, and they cause it to crash every so often. These bugs are typically within writing videos to file, and mixing the audio
+The gTTS module is much slower than pyttsx3, but pyttsx3 does not work through heroku as its installation on my personal device builds differently than on the server. Finding a workaround to help pyttsx3 build on the heroku server would significantly improve runtime and user experience
 
 # Installation
 ```
