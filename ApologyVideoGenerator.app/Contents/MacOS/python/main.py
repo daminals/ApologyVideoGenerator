@@ -62,7 +62,7 @@ def main(bool_inp,ID,apolo=''):
     script = Intro + Middle_part + Conclusion
     print('Processing audio...')
 
-    audio = gTTS(text=script, lang=language, slow=True)
+    audio = gTTS(script)
 
     audio.save('Assets/audio.aac')
 

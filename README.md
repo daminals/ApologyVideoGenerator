@@ -1,7 +1,5 @@
-![github repo badge: Project](https://img.shields.io/badge/Project-Deprecated-181717?color=lightgray)  ![github repo badge: Language](https://img.shields.io/badge/GUI-Java-181717?color=orange)  ![github repo badge: Language](https://img.shields.io/badge/Backend-Python-181717?color=blue)  ![github repo badge: Language](https://img.shields.io/badge/Backend-Bash-181717?color=green)   ![github repo badge: build](https://img.shields.io/badge/build-failing-181717?color=red)  ![github repo badge: Powered By](https://img.shields.io/badge/Powered%20by-FFMPEG-181717?color=Green)  ![github repo badge: Powered By](https://img.shields.io/badge/Powered%20by-gTTS-181717?color=red)
+![github repo badge: Language](https://img.shields.io/badge/GUI-Java-181717?color=orange)  ![github repo badge: Language](https://img.shields.io/badge/Backend-Python-181717?color=blue)  ![github repo badge: Language](https://img.shields.io/badge/Backend-Bash-181717?color=green)   ![github repo badge: build](https://img.shields.io/badge/build-failing-181717?color=red)  ![github repo badge: Powered By](https://img.shields.io/badge/Powered%20by-FFMPEG-181717?color=Green)  ![github repo badge: Powered By](https://img.shields.io/badge/Powered%20by-gTTS-181717?color=red)
 # ApologyVideoGenerator
-
-> :warning: **PROJECT IS DEPRECATED** :warning: Google Text to Speech functionality is broken, so the project is deprecated
 
 A problem our generation faces is the need to apologize for the horrible things we have done.
 Youtube sensations do so many horrible things, and apologize in such a generic and uniform way, the apology video has become its own 'unique' genre (I say 'unique' because these videos are all practically the same)
