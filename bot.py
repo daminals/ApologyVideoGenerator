@@ -28,7 +28,7 @@ async def on_ready():
 async def sorry(ctx, *, sor):
     sorry_channel = bot.get_channel(916044583870267393)
     print('transforming ' + sor + ' into an apology video')
-    await ctx.send('Processing... \nthis usually takes about 2 minutes...')
+    await ctx.send('Processing... [this usually takes about 2 minutes...]')
     ID = gen_ID(4)
     try:
         await main(True, ID, sor)
