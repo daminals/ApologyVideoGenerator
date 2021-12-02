@@ -60,6 +60,9 @@ async def main(bool_inp,ID,apolo=''):
     script = Intro + Middle_part + Conclusion
     print('Processing audio...')
 
+    #ttsEngine = pyttsx3.init()
+    #ttsEngine.save_to_file(script, 'Assets/audio.aac')
+    #ttsEngine.runAndWait()
     audio = gtts.gTTS(script)
 
     audio.save('Assets/audio.aac')
