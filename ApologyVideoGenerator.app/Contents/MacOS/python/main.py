@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # main.py
 # This generates Apology videos
 # Daniel Kogan, 6/30/2020
@@ -42,7 +43,7 @@ def clutter():
 
 def compression(input_name, output_name):
     inp = {input_name: None}
-    outp = {output_name: f'-vcodec libx264 -crf 23'}
+    outp = {output_name: '-vcodec libx264 -crf 23'}
     ff = ffmpy.FFmpeg(inputs=inp, outputs=outp)
     print(ff.cmd)
     ff.run()

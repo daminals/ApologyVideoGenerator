@@ -1,48 +1,22 @@
-aiohttp==3.6.2
-async-timeout==3.0.1
-attrs==19.3.0
-beautifulsoup4==4.9.1
-cairocffi==1.1.0
-certifi==2020.6.20
-cffi==1.14.0
-chardet==3.0.4
-click==7.1.2
+certifi==2021.10.8
+charset-normalizer==2.0.8
+click==8.0.3
 decorator==4.4.2
-<<<<<<< HEAD:ApologyVideoGenerator.app/Contents/MacOS/python/requirements.txt
-ffmpy==0.2.3
-fire==0.3.1
-=======
-discord==1.0.1
-discord.py==1.3.4
-ffmpy==0.2.3
->>>>>>> 401fba1d3502b34873bed3c885978c1b102a1951:requirements.txt
-gizeh==0.1.11
-gTTS==2.1.1
-gTTS-token==1.1.3
-idna==2.10
-imageio==2.8.0
-imageio-ffmpeg==0.4.2
+ffmpy==0.3.0
+fire==0.4.0
+gTTS==2.2.3
+idna==3.3
+imageio==2.13.1
+imageio-ffmpeg==0.4.5
+importlib-metadata==4.8.2
 moviepy==1.0.3
-multidict==4.7.6
-numpy==1.19.0
-Pillow==7.2.0
+numpy==1.21.4
+Pillow==8.4.0
 proglog==0.1.9
-pycparser==2.20
-python-dotenv==0.13.0
-<<<<<<< HEAD:ApologyVideoGenerator.app/Contents/MacOS/python/requirements.txt
-PyYAML==5.3.1
-=======
->>>>>>> 401fba1d3502b34873bed3c885978c1b102a1951:requirements.txt
-requests==2.24.0
-scipy==1.5.0
-six==1.15.0
-soupsieve==2.0.1
+requests==2.26.0
+six==1.16.0
 termcolor==1.1.0
-tqdm==4.47.0
-urllib3==1.25.9
-<<<<<<< HEAD:ApologyVideoGenerator.app/Contents/MacOS/python/requirements.txt
-versiontools==1.9.1
-=======
->>>>>>> 401fba1d3502b34873bed3c885978c1b102a1951:requirements.txt
-websockets==8.1
-yarl==1.4.2
+tqdm==4.62.3
+typing_extensions==4.0.1
+urllib3==1.26.7
+zipp==3.6.0
