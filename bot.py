@@ -16,7 +16,6 @@ from main import *
 
 bot.remove_command('help')
 
-
 @bot.event
 async def on_ready():
     print('bot.py is active')
@@ -25,9 +24,9 @@ async def on_ready():
     await bot.change_presence(
         activity=discord.Activity(type=discord.ActivityType.watching, name=f"over {server_num} servers| s!help"))
 
-
 @bot.command(name='sorry')
 async def sorry(ctx, *, sor):
+    sorry_channel = bot.get_channel(916044583870267393)
     print('transforming ' + sor + ' into an apology video')
     await ctx.send('Processing... \nthis usually takes about 2 minutes...')
     ID = gen_ID(4)
@@ -40,13 +39,13 @@ async def sorry(ctx, *, sor):
         except Exception as e:
             ctx.send(
                 f'*{str(e)}* is just too powerful {ctx.author.mention}. I was unable to produce your video, I suppose I now need to make an apology video of my own')
-    message = await ctx.send(f'{ctx.author.mention} Your apology video is finished! Enjoy!',
+    message = await sorry_channel.send(f'{ctx.author.mention} Your apology video is finished! Enjoy!',
                    file=discord.File("Finished/apology" + ID + ".mp4"))
     await message.add_reaction('<:upvote:776161705960931399>')
     await message.add_reaction('<:downvote:776162465842200617>')
 
+    await message.send(file=discord.File("Finished/apology" + ID + ".mp4")) # back up the apology videos
     os.remove("Finished/apology" + ID + ".mp4")
-
 
 @bot.command(name='help')
 async def help(ctx):
@@ -56,7 +55,6 @@ async def help(ctx):
                     value='Use s!sorry to create your own apology!',
                     inline=False)
     await ctx.channel.send(embed=embed)
-
 
 
 bot.run(TOKEN)
