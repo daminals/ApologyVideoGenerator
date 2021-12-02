@@ -1,3 +1,4 @@
+![github repo badge: Project](https://img.shields.io/badge/Project-Deprecated-181717?color=lightgray)  ![github repo badge: Language](https://img.shields.io/badge/GUI-Java-181717?color=orange)  ![github repo badge: Language](https://img.shields.io/badge/Backend-Python-181717?color=blue)  ![github repo badge: Language](https://img.shields.io/badge/Backend-Bash-181717?color=green)   ![github repo badge: build](https://img.shields.io/badge/build-failing-181717?color=red)  ![github repo badge: Powered By](https://img.shields.io/badge/Powered%20by-FFMPEG-181717?color=Green)  ![github repo badge: Powered By](https://img.shields.io/badge/Powered%20by-gTTS-181717?color=red)
 # ApologyVideoGenerator
 
 > :warning: **PROJECT IS DEPRECATED** :warning: Google Text to Speech functionality is broken, so the project is deprecated
@@ -12,9 +13,13 @@ To that end, this program aims to automate the creation of Apology videos, and i
 [![](https://res.cloudinary.com/marcomontalbano/image/upload/v1594592001/video_to_markdown/images/youtube--Cjb45G58kk8-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/Cjb45G58kk8 "")
 
 # Java GUI
-After continuous work, a frontend GUI for users is finally operational. This allows users to not only generate their video outside of the command line, but also VIEW the video within the GUI!
+A fully frontend GUI for users has been developed. This allows users to not only generate their video outside of the command line, but also VIEW the video within the GUI!
 
 <img src="https://github.com/daminals/ApologyVideoGenerator/blob/java/python/Assets/demonstration/gui_worked.png" width="600">
+
+In addition, the GUI allows users to scrub videos after they generate them.
+
+[![GUI Demo](https://img.youtube.com/vi/gX9Rwh9vS_I/0.jpg)](https://www.youtube.com/watch?v=gX9Rwh9vS_I)
 
 # Next Steps
 
