@@ -2,7 +2,7 @@
 # This generates Apology videos
 # Daniel Kogan, 6/30/2020
 
-import pyttsx3
+import gtts
 from moviepy.editor import *
 from moviepy.audio.fx.volumex import volumex
 import os, random, ffmpy, asyncio
@@ -59,13 +59,13 @@ async def main(bool_inp,ID,apolo=''):
     Conclusion = f' Thank you everyone for giving me this time to apologize for my actions. It\'s just been so so hard for me since {random.choice(bs)}. I love each of you guys so so much. Thank you, and Don\'t forget to SMASH that like button and subscribe for more content!'
     script = Intro + Middle_part + Conclusion
     print('Processing audio...')
+    
+    #ttsEngine = pyttsx3.init()
+    #ttsEngine.save_to_file(script, 'Assets/audio.aac')
+    #ttsEngine.runAndWait()
+    audio = gtts.gTTS(script)
 
-    ttsEngine = pyttsx3.init()
-    ttsEngine.save_to_file(script, 'Assets/audio.aac')
-    ttsEngine.runAndWait()
-    #audio = gtts.gTTS(script)
-
-    #audio.save('Assets/audio.aac')
+    audio.save('Assets/audio.aac')
 
     audioClip = AudioFileClip("Assets/audio.aac")
 
