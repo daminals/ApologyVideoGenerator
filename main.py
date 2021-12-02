@@ -2,7 +2,7 @@
 # This generates Apology videos
 # Daniel Kogan, 6/30/2020
 
-from gtts import gTTS
+import pyttsx3
 from moviepy.editor import *
 from moviepy.audio.fx.volumex import volumex
 import os, random, ffmpy, asyncio
@@ -60,9 +60,12 @@ async def main(bool_inp,ID,apolo=''):
     script = Intro + Middle_part + Conclusion
     print('Processing audio...')
 
-    audio = gTTS(text=script, lang=language, slow=True)
+    ttsEngine = pyttsx3.init()
+    ttsEngine.save_to_file(script, 'Assets/audio.aac')
+    ttsEngine.runAndWait()
+    #audio = gTTS(text=script, lang=language, slow=True)
 
-    audio.save('Assets/audio.aac')
+    #audio.save('Assets/audio.aac')
 
     audioClip = AudioFileClip("Assets/audio.aac")
 
