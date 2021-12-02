@@ -45,6 +45,16 @@ challenge = ["It's just been so hard for me since",
              "You just wouldn't understand the pain of being the only funny youtuber"
              ]
 
+wrongness_list = ["is the worst thing I have ever done in my entire life, no contest",
+                  "is the lowest of lows, and it should not have been me",
+                  "is like eating peanut butter and pickle sandwiches. It's just wrong"
+                ]
+
+thank_u = ["Thank you everyone for giving me this time to apologize for my actions",
+           "Thanks y'all. My sins were bad and now I expect forgiveness and youtube views",
+           "Thanks for listening to this video, follow for more content like this"
+           ]
+
 def gen_ID(char):
     ID = ''
     for i in range(char):
@@ -71,8 +81,8 @@ async def main(bool_inp,ID,apolo=''):
     else:
         reason = input('Why are you apologizing? ')
     Intro = random.choice(apology_intros)
-    Middle_part = f".  I am deeply and truly sorry for {reason.lower()}. It was wrong, disgraceful, and I promise it will never happen again,  .   {reason.lower()} is the worst thing I have ever done in my entire life, no contest. . .  {random.choice(middle)}"
-    Conclusion = f' Thank you everyone for giving me this time to apologize for my actions. {random.choice(challenge)} {random.choice(bs)}. I love each of you guys so so much. Thank you, and Don\'t forget to SMASH that like button and subscribe for more content!'
+    Middle_part = f".  I am deeply and truly sorry for {reason.lower()}. It was wrong, disgraceful, and I promise it will never happen again,  .   {reason.lower()} {random.choice(wrongness_list)}. . .  {random.choice(middle)}"
+    Conclusion = f' {random.choice(thank_u)}. {random.choice(challenge)} {random.choice(bs)}. I love each of you guys so so much. Thank you, and Don\'t forget to SMASH that like button and subscribe for more content!'
     script = Intro + Middle_part + Conclusion
     print('Processing audio...')
     
