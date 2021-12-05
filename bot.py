@@ -16,6 +16,10 @@ from main import *
 
 bot.remove_command('help')
 
+async def updown(message):
+    await message.add_reaction('<:upvote:776161705960931399>')
+    await message.add_reaction('<:downvote:776162465842200617>')
+
 @bot.event
 async def on_ready():
     print('bot.py is active')
@@ -41,10 +45,10 @@ async def sorry(ctx, *, sor):
                 f'*{str(e)}* is just too powerful {ctx.author.mention}. I was unable to produce your video, I suppose I now need to make an apology video of my own')
     message = await ctx.send(f'{ctx.author.mention} Your apology video is finished! Enjoy!',
                    file=discord.File("Finished/apology" + ID + ".mp4"))
-    await message.add_reaction('<:upvote:776161705960931399>')
-    await message.add_reaction('<:downvote:776162465842200617>')
-
-    await sorry_channel.send(sor, file=discord.File("Finished/apology" + ID + ".mp4")) # back up the apology videos
+    await updown(message)
+    message2 = await sorry_channel.send(sor, file=discord.File("Finished/apology" + ID + ".mp4")) # back up the apology videos
+    await updown(message2) # honestly this is really unnecessary but #consistency
+    
     os.remove("Finished/apology" + ID + ".mp4")
 
 @bot.command(name='help')
