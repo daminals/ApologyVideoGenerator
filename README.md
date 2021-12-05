@@ -1,4 +1,4 @@
-![github repo badge: Language](https://img.shields.io/badge/GUI-Java-181717?color=orange)  ![github repo badge: Language](https://img.shields.io/badge/Backend-Python-181717?color=blue)  ![github repo badge: Language](https://img.shields.io/badge/Backend-Bash-181717?color=green)   ![github repo badge: build](https://img.shields.io/badge/build-passing-181717?color=green)  ![github repo badge: Powered By](https://img.shields.io/badge/Powered%20by-FFMPEG-181717?color=Green)  ![github repo badge: Powered By](https://img.shields.io/badge/Powered%20by-gTTS-181717?color=red)
+![github repo badge: Language](https://img.shields.io/badge/GUI-Java-181717?color=orange)  ![github repo badge: Language](https://img.shields.io/badge/Backend-Python-181717?color=blue)  ![github repo badge: Language](https://img.shields.io/badge/Backend-Bash-181717?color=green)   ![github repo badge: build](https://img.shields.io/badge/build-passing-181717?color=green)  ![github repo badge: Powered By](https://img.shields.io/badge/Powered%20by-FFMPEG-181717?color=Green)  ![github repo badge: Powered By](https://img.shields.io/badge/Powered%20by-gTTS-181717?color=red)  ![github repo badge: Hosted on](https://img.shields.io/badge/Hosted%20on-Heroku-181717?color=purple)
 # ApologyVideoGenerator
 
 A problem our generation faces is the need to apologize for the horrible things we have done.
@@ -17,7 +17,7 @@ A fully frontend GUI for users has been developed. This allows users to not only
 
 In addition, the GUI allows users to scrub videos after they generate them.
 
-[![GUI Demo](https://img.youtube.com/vi/gX9Rwh9vS_I/0.jpg)](https://www.youtube.com/watch?v=gX9Rwh9vS_I)
+[![GUI Demo](ApologyVideoGenerator.app/Contents/MacOS/python/Assets/demonstration/video.png)](https://www.youtube.com/watch?v=gX9Rwh9vS_I)
 
 # Next Steps
 
