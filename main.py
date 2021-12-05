@@ -17,7 +17,6 @@ apology_intros = ["I made a severe and continuous lapse in my judgement, and I d
                   "simply here to apologize. ", "I want to talk to you guys about some mistakes I have made, ",
                   "yeah, I wasn't acting very sexy earlier...   ", "...Long and Deep sigh...",
                   "Hey crewmates! SORRY for being sus earlier... ", 
-                  "Hey youtube! I am so so sorry. By the way this video is sponsored by NordVPN if you wanna check it out. Use my promo code sorry fifteen for fifteen% off",
                   ]
 
 bs = ["My waitress at taco bell got my order wrong three months ago", "I couldn't find my right sock this morning",
@@ -39,19 +38,15 @@ middle = ["I don't want your forgiveness, just the open space to be able to say 
           ]
 
 challenge = ["It's just been so hard for me since",
-             "Life has always been difficult for me.   ",
-             "I don't even know what I'm doing anymore.  ",
-             "Life for me is like that tiktok taylor swift audio: Screaming! Crying!   ",
-             "You just wouldn't understand the pain of being the only funny youtuber.   "
+             "Life has always been difficult for me, for instance ",
+             "Life for me has been like that tiktok taylor swift audio: Screaming! Crying! ever since",
              ]
 
 wrongness_list = ["is the worst thing I have ever done in my entire life, no contest",
                   "is the lowest of lows, and it should not have been me",
-                  "is like eating peanut butter and pickle sandwiches. It's just wrong"
                 ]
 
 thank_u = ["Thank you everyone for giving me this time to apologize for my actions",
-           "Thanks y'all. My sins were bad and now I expect forgiveness and youtube views",
            "Thanks for listening to this video, follow for more content like this"
            ]
 
