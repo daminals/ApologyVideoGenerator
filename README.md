@@ -1,6 +1,9 @@
 ![github repo badge: Language](https://img.shields.io/badge/GUI-Java-181717?color=orange)  ![github repo badge: Language](https://img.shields.io/badge/Backend-Python-181717?color=blue)  ![github repo badge: Language](https://img.shields.io/badge/Backend-Bash-181717?color=green)   ![github repo badge: build](https://img.shields.io/badge/build-passing-181717?color=green)  ![github repo badge: Powered By](https://img.shields.io/badge/Powered%20by-FFMPEG-181717?color=Green)  ![github repo badge: Powered By](https://img.shields.io/badge/Powered%20by-gTTS-181717?color=red)  ![github repo badge: Hosted on](https://img.shields.io/badge/Hosted%20on-Heroku-181717?color=purple)
 # ApologyVideoGenerator
 
+_This repo is the java gui version, the discord bot version can be found [here](https://github.com/daminals/ApologyVideoGen-discordpy)_
+
+
 A problem our generation faces is the need to apologize for the horrible things we have done.
 Youtube sensations do so many horrible things, and apologize in such a generic and uniform way, the apology video has become its own 'unique' genre (I say 'unique' because these videos are all practically the same)
 
