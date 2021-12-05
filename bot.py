@@ -44,7 +44,7 @@ async def sorry(ctx, *, sor):
     await message.add_reaction('<:upvote:776161705960931399>')
     await message.add_reaction('<:downvote:776162465842200617>')
 
-    await sorry_channel.send(file=discord.File("Finished/apology" + ID + ".mp4")) # back up the apology videos
+    await sorry_channel.send(sor, file=discord.File("Finished/apology" + ID + ".mp4")) # back up the apology videos
     os.remove("Finished/apology" + ID + ".mp4")
 
 @bot.command(name='help')
