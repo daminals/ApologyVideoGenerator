@@ -39,12 +39,12 @@ async def sorry(ctx, *, sor):
         except Exception as e:
             ctx.send(
                 f'*{str(e)}* is just too powerful {ctx.author.mention}. I was unable to produce your video, I suppose I now need to make an apology video of my own')
-    message = await sorry_channel.send(f'{ctx.author.mention} Your apology video is finished! Enjoy!',
+    message = await ctx.send(f'{ctx.author.mention} Your apology video is finished! Enjoy!',
                    file=discord.File("Finished/apology" + ID + ".mp4"))
     await message.add_reaction('<:upvote:776161705960931399>')
     await message.add_reaction('<:downvote:776162465842200617>')
 
-    await message.send(file=discord.File("Finished/apology" + ID + ".mp4")) # back up the apology videos
+    await sorry_channel.send(file=discord.File("Finished/apology" + ID + ".mp4")) # back up the apology videos
     os.remove("Finished/apology" + ID + ".mp4")
 
 @bot.command(name='help')
