@@ -53,16 +53,17 @@ public class Controller implements Initializable{
         });
 
     }
+    // reason is linked to the videoText element
     public String reason;
-
     public void build() throws ExecutionException, InterruptedException {
         reason = videoText.getText();
         videoText.clear();
-        System.out.println(reason);
         mediaView.setVisible(true);
         fileName.setVisible(true);
 
         ID = renderer.gen_ID(4);
+        System.out.println(reason);
+        System.out.println(ID);
         displayVideo.restart();
     }
 
@@ -110,9 +111,9 @@ public class Controller implements Initializable{
                 protected void succeeded(){
                     File video = new File("python/Finished/apology"+ID+".mp4");
                     if (video.exists()){
-                    Timer.setValue(0);
-                    changevid();
-                    fileName.setText("apology"+ID+".mp4");
+                      Timer.setValue(0);
+                      changevid();
+                      fileName.setText("apology"+ID+".mp4");
                     }else {
                         fileName.setText("VIDEO FAILED");
                     }

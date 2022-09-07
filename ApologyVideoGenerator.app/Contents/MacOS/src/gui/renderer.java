@@ -12,10 +12,11 @@ public interface renderer {
         }
     }
     static String runMainPY(String ID, String reason) {
+      String arguments = "cd python && source venv/bin/activate && python main.py main --cli_input=true --ID='"+ID+"' --apolo='"+reason+"'";
+      System.out.println("running..");
         try {
-            String[] command = new String[] {"/bin/zsh","-c","cd python && source venv/bin/activate && python main.py main --bool_inp=True --ID='"+ID+"' --apolo='"+reason+"'" };
+            String[] command = new String[] {"/bin/zsh","-c", arguments };
             Process p = Runtime.getRuntime().exec(command);
-
             printResults(p);
         } catch (IOException e) {
             e.printStackTrace();
